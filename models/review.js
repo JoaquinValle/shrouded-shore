@@ -16,7 +16,7 @@ const reviewSchema = new Schema({
   },
   //Numeric rating (0-5)
   rating: {
-    type: Float32Array,
+    type: mongoose.Types.Decimal128,
     required: true
   },
   //Creator (DB id)
