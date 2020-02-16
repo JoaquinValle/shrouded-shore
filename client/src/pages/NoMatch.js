@@ -1,10 +1,15 @@
 import React from "react";
+import { Col, Row, Container } from "../components/Grid";
 
 function NoMatch() {
   return (
-    <div>
-      <h1>404 Page Not Found</h1>
-    </div>
+    <Container>
+      <Row>
+        <Col size="s12">
+          <h1>404</h1>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

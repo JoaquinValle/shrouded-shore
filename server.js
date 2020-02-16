@@ -19,5 +19,5 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/shrouded-shore"
 
 // Start the API server
 app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  console.log(`Back-End Server now listening on PORT ${PORT}!`);
 });

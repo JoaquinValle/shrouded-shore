@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
-import API from "../utils/API";
+import React from "react";
+// import React, { useState, useEffect } from "react";
+import { Col, Row, Container } from "../components/Grid";
 
 function Top() {
   return (
-    <div>
-      <h1>Top Games</h1>
-    </div>
+    <Container>
+      <Row>
+        <Col size="s12">
+          <h1>Top Games</h1>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 export default Top;

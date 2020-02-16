@@ -6,12 +6,14 @@ import Categories from "./pages/Categories";
 import Complexity from "./pages/Complexity"
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Sidenav from "./components/Sidenav"
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <Nav/ >
+        <Sidenav/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/top" component={Top} />
