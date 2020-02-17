@@ -1,0 +1,9 @@
+@media only screen and (min-width : 993px) {
+    .sidenavWrapper{
+        top: 65px;
+    }
+}
+
+.sidenav-fixed{
+    width:170px;
+}
