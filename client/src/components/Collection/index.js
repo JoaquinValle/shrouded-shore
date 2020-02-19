@@ -14,7 +14,9 @@ export function CollectionItem(props) {
     <li className="collection-item avatar">
       <img src={props.image} alt="" className="circle"/>
       <span className="title">{props.title}</span>
-      <p>{props.content}</p>
-      <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
+      <p>
+        <i class="material-icons">group</i>{props.players} players. <br/>
+        <i class="material-icons">timer</i>{props.time} minutes.
+      </p>
     </li>);
 }
