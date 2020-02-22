@@ -1,17 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import M from 'materialize-css';
 
-function Nav() {
+function Nav(props) {
+  const [userState, setUserState]=useState(false);
+
   useEffect(() => {
     M.Sidenav.init(document.querySelectorAll('#slide-out'),{menuWidth:170});
   }, []);
 
   return (
     <aside>
-      <ul id="slide-out" className="sidenav sidenav-fixed sidenavWrapper">
-        <li><a className="flow-text" href="#!">User</a></li>
-        <li><a href="#!">Games</a></li>
+      <ul id="sideNavLogged" className="sidenav sidenav-fixed sidenavWrapper">
+        <li><div className="user-view">
+          <div className="background cyan darken-4"></div>
+          {userState?(<div>
+            <a href="#profile"><img className="circle" src="https://randomuser.me/api/portraits/men/72.jpg" alt="profile"/></a>
+            <a href="#profile"><span className="white-text name">John Doe</span></a>
+            <a href="#logout" onClick={()=>setUserState(false)}><span className="white-text email">Log Out</span></a>
+          </div>):(<div>
+            <a href="#login">
+              <i className="material-icons logInIcon">account_circle</i>
+              <span className="white-text email" onClick={()=>setUserState(true)}>Log In</span>
+            </a>
+          </div>)}
+        </div></li>
+
+        <li><a href={userState?"#profile":"#login"}><i className="material-icons">account_circle</i>Profile</a></li>
+
+        <li><a href={userState?"#games":"#login"}><i className="material-icons">collections</i>Games</a></li>
+
+        <li><a href={userState?"#friends":"#login"}><i className="material-icons">contacts</i>Friends</a></li>
+
       </ul>
     </aside>
   );

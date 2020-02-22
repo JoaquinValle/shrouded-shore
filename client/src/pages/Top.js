@@ -4,7 +4,7 @@ import { Collection, CollectionItem } from "../components/Collection";
 import API from "../utils/API";
 
 function Top() {
-  const numDisplayed = 8;
+  const numDisplayed = 6;
   const [gamesState, setGamesState] = useState([]);
 
   useEffect(()=>{
@@ -16,9 +16,13 @@ function Top() {
 
   return (
     <Container>
+
+      <Row>
+        <h1 className="header center teal-text">Top Games</h1>
+      </Row>
+
       <Row>
         <Col size="s12">
-          <h1>Top Games</h1>
           <Collection>
             {gamesState.filter((game,i)=>i>=0 && i<numDisplayed)
             .map(game=>(

@@ -5,8 +5,8 @@ import Pagination from "../components/Pagination";
 import API from "../utils/API";
 
 function Home() {
-  const numDisplayed = 8;
-  const paginationSize = 12;
+  const numDisplayed = 5;
+  const paginationSize = 6;
   const [gamesState, setGamesState] = useState([]);
   const [pageState, setPageState] = useState(1);
 
@@ -19,9 +19,13 @@ function Home() {
 
   return (
     <Container>
+
+      <Row>
+        <h1 className="header center teal-text">New Games</h1>
+      </Row>
+
       <Row>
         <Col size="s12">
-          <h1>New Games</h1>
           <Collection>
             {gamesState
             .filter((game,i)=>i>=(pageState*numDisplayed)-numDisplayed && i<(pageState*numDisplayed))

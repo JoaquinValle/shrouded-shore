@@ -14,7 +14,7 @@ export function CollectionItem(props) {
   return(
     <li className="collection-item" id={props.id}>
       <Col size="xl1 s2">
-        <img src={props.image} alt="" className="circle"/>
+        <img src={props.image} alt="" className="imgCollection"/>
       </Col>
           
       <Col size={props.content!==""?"xl4 s10":"xl11 s10"}>
