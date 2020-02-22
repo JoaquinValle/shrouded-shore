@@ -34,3 +34,8 @@
     /* Support for IE. */
     font-feature-settings: "liga";
   }
+
+  .iconText{
+    position: relative;
+    top:5px;
+  }

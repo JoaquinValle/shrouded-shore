@@ -5,8 +5,8 @@ import Pagination from "../components/Pagination";
 import API from "../utils/API";
 
 function Home() {
-  const numDisplayed = 5;
-  const paginationSize = 3;
+  const numDisplayed = 8;
+  const paginationSize = 12;
   const [gamesState, setGamesState] = useState([]);
   const [pageState, setPageState] = useState(1);
 
@@ -23,7 +23,8 @@ function Home() {
         <Col size="s12">
           <h1>New Games</h1>
           <Collection>
-            {gamesState.filter((game,i)=>i>=pageState-1 && i<pageState+numDisplayed-1)
+            {gamesState
+            .filter((game,i)=>i>=(pageState*numDisplayed)-numDisplayed && i<(pageState*numDisplayed))
             .map(game=>(
               <CollectionItem
                 id={game.id}
@@ -31,8 +32,8 @@ function Home() {
                 image={game.thumb_url}
                 title={game.name}
                 content={game.description_preview}
-                players={`${game.min_players}-${game.max_players}`}
-                time={`${game.min_playtime}-${game.max_playtime}`}
+                players={game.min_players!==null?`${game.min_players}-${game.max_players}`:null}
+                time={game.min_playtime!==null?`${game.min_playtime}-${game.max_playtime}`:null}
               />
             ))}
           </Collection>

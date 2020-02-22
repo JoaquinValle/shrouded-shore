@@ -6,3 +6,7 @@
     padding-left:43px;
     padding-right: 15px;
 }
+
+input[type="search"] {
+    height: 64px !important;
+  }

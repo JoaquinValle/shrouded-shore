@@ -12,17 +12,31 @@ export function Collection({ children }) {
 
 export function CollectionItem(props) {
   return(
-    <li className="collection-item avatar">
-      <Col size="s2">
+    <li className="collection-item" id={props.id}>
+      <Col size="xl1 s2">
         <img src={props.image} alt="" className="circle"/>
-        <span className="title">{props.title}</span>
       </Col>
-      <Col size="s2">
-        <i className="material-icons">group</i>{props.players} players. <br/>
-        <i className="material-icons">timer</i>{props.time} minutes.
+          
+      <Col size={props.content!==""?"xl4 s10":"xl11 s10"}>
+        <Col size="s12">
+          <h5 className="title">{props.title}</h5>
+        </Col>
+        {props.players!==null?(
+          <Col>
+            <i className="material-icons iconText">group</i> {props.players} players.
+          </Col>
+        ):""}
+        {props.time!==null?(
+          <Col>
+            <i className="material-icons iconText">timer</i> {props.time} minutes.
+          </Col>
+        ):""}
       </Col>
-      <Col size="s8">
-        <p>{props.content.slice(0,200)+"..."}</p>
-      </Col>
+
+      {props.content!==""?(
+        <Col size="xl7 s12">
+          <p>{props.content.replace("�","").slice(0,200)+"..."}</p>
+        </Col>
+      ):""}
     </li>);
 }
