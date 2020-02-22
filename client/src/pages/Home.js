@@ -23,7 +23,8 @@ function Home() {
         <Col size="s12">
           <h1>New Games</h1>
           <Collection>
-            {gamesState.filter((game,i)=>i>=(pageState*numDisplayed)-numDisplayed && i<(pageState*numDisplayed))
+            {gamesState
+            .filter((game,i)=>i>=(pageState*numDisplayed)-numDisplayed && i<(pageState*numDisplayed))
             .map(game=>(
               <CollectionItem
                 id={game.id}
@@ -31,8 +32,8 @@ function Home() {
                 image={game.thumb_url}
                 title={game.name}
                 content={game.description_preview}
-                players={`${game.min_players}-${game.max_players}`}
-                time={`${game.min_playtime}-${game.max_playtime}`}
+                players={game.min_players!==null?`${game.min_players}-${game.max_players}`:null}
+                time={game.min_playtime!==null?`${game.min_playtime}-${game.max_playtime}`:null}
               />
             ))}
           </Collection>
