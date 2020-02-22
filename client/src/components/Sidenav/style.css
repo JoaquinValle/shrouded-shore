@@ -1,9 +1,14 @@
-@media only screen and (min-width : 993px) {
-    .sidenavWrapper{
-        top: 65px;
-    }
+.sidenav-fixed{
+    width:220px;
 }
 
-.sidenav-fixed{
-    width:170px;
+@media only screen and (min-width : 993px) {
+    .sidenavWrapper{
+        top: 85px;
+    }
+
+    .sidenav.sidenav-fixed{
+        width:210px;
+        left:30px;
+    }
 }

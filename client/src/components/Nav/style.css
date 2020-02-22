@@ -1,5 +1,5 @@
 .brand-logo{
-    margin-left: 1rem;
+    margin-left: 30px;
 }
 
 .sidenavSearch{
@@ -9,4 +9,10 @@
 
 input[type="search"] {
     height: 64px !important;
-  }
+}
+
+@media only screen and (max-width : 992px) {
+    .brand-logo{
+        margin-left: 10px;
+    }
+}
