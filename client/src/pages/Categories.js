@@ -6,8 +6,12 @@ function Categories() {
   return (
     <Container>
       <Row>
+        <h1 className="header center teal-text">Categories</h1>
+      </Row>
+
+      <Row>
         <Col size="s12">
-          <h1>Categories</h1>
+          
         </Col>
       </Row>
     </Container>
