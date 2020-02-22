@@ -6,17 +6,17 @@ function Nav(props) {
   const [userState, setUserState]=useState(false);
 
   useEffect(() => {
-    M.Sidenav.init(document.querySelectorAll('#slide-out'),{menuWidth:170});
+    M.Sidenav.init(document.querySelectorAll('#sideNav'),{menuWidth:170});
   }, []);
 
   return (
     <aside>
-      <ul id="sideNavLogged" className="sidenav sidenav-fixed sidenavWrapper">
+      <ul id="sideNav" className="sidenav sidenav-fixed sidenavWrapper">
         <li><div className="user-view">
           <div className="background cyan darken-4"></div>
           {userState?(<div>
             <a href="#profile"><img className="circle" src="https://randomuser.me/api/portraits/men/72.jpg" alt="profile"/></a>
-            <a href="#profile"><span className="white-text name">John Doe</span></a>
+            <a href="#profile"><span className="white-text name">Dohn Joe</span></a>
             <a href="#logout" onClick={()=>setUserState(false)}><span className="white-text email">Log Out</span></a>
           </div>):(<div>
             <a href="#login">
