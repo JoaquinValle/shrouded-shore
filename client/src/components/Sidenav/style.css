@@ -2,6 +2,15 @@
     width:220px;
 }
 
+.sidenav .user-view .name{
+    font-size: 18px;
+}
+
+.logInIcon{
+    color: white;
+    font-size: 40px;
+}
+
 @media only screen and (min-width : 993px) {
     .sidenavWrapper{
         top: 85px;
