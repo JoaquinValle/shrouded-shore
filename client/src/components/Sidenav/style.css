@@ -20,4 +20,56 @@
         width:210px;
         left:30px;
     }
+
+    .animatedSlideIn{
+        animation: sideToMidIn 1s forwards !important;
+    }
+
+    .animatedSlideOut{
+        animation: sideToMidOut 1s forwards !important;
+    }
+}
+
+@keyframes sideToMidIn {
+    0%{
+        width:210px;
+        left: 30px;
+    }
+
+    10%{
+        width: 210px;
+        left: 10px;
+    }
+
+    80%{
+        width: 1300px;
+        left: 330px;
+    }
+
+    100%{
+        width:1300px;
+        left: 300px;
+    }
+}
+
+@keyframes sideToMidOut {
+    100%{
+        width:210px;
+        left: 30px;
+    }
+
+    80%{
+        width: 210px;
+        left: 5px;
+    }
+
+    10%{
+        width: 1300px;
+        left: 320px;
+    }
+
+    0%{
+        width:1300px;
+        left: 300px;
+    }
 }
