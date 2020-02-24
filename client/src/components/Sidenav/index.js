@@ -3,7 +3,7 @@ import "./style.css";
 import M from 'materialize-css';
 
 function Nav(props) {
-  const [userState, setUserState] = useState(false);
+  const [userState, setUserState] = useState(1);
   const [animState, setAnimState] = useState("");
 
   useEffect(() => {
@@ -13,29 +13,65 @@ function Nav(props) {
   return (
     <aside>
       <ul id="sideNav" className={"sidenav sidenav-fixed sidenavWrapper "+animState}>
-        <li><div className="user-view">
-          <div className="background cyan darken-4"></div>
-          {userState?(<div>
+
+          {userState===0?(<>
+          <li class="topSidenav"><div className="user-view">
+            <div className="background teal"></div>
             <a href="#profile"><img className="circle" src="https://randomuser.me/api/portraits/men/72.jpg" alt="profile"/></a>
             <a href="#profile"><span className="white-text name">Dohn Joe</span></a>
-            <a href="#logout" onClick={()=>setUserState(false)}><span className="white-text email">Log Out</span></a>
-          </div>):(<div>
-            <a href="#login" onClick={()=>setAnimState("animatedSlideIn")}>
+            <a href="#logout" onClick={()=>setUserState(1)}><span className="white-text email">Log Out</span></a>
+          </div></li>
+          <li><a href="#profile"><i className="material-icons">account_circle</i>Profile</a></li>
+          <li><a href="#games"><i className="material-icons">collections</i>Games</a></li>
+          <li><a href="#friends"><i className="material-icons">contacts</i>Friends</a></li>
+          </>):userState===1?(
+          <li class="topSidenav"><div className="user-view">
+            <div className="background teal"></div>
+            <a href="#login" onClick={()=>{
+              setAnimState("animatedSlideIn")
+              setUserState(2)
+            }}>
               <i className="material-icons logInIcon">account_circle</i>
-              <span className="white-text email" onClick={()=>setUserState(true)}>Log In</span>
+              <span className="white-text email">Log In</span>
             </a>
-          </div>)}
-        </div></li>
-
-        <li><a href={userState?"#profile":"#login"} onClick={()=>setAnimState("animatedSlideOut")}><i className="material-icons">account_circle</i>Profile</a></li>
-
-        <li><a href={userState?"#games":"#login"}><i className="material-icons">collections</i>Games</a></li>
-
-        <li><a href={userState?"#friends":"#login"}><i className="material-icons">contacts</i>Friends</a></li>
+          </div></li>
+          ):(<>
+          <li class="topSidenav"><div className="user-view">
+            <div className="background teal"></div>
+            <i className="material-icons" id="closeLogin" onClick={()=>{
+                setAnimState("animatedSlideOut")
+                setUserState(1)
+              }}>close</i>
+            <i className="material-icons logInIcon">account_circle</i>
+            <span className="white-text email">Log In</span>
+          </div></li>
+          <form class="formWrapper">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate"/>
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate"/>
+                <label for="password">Password</label>
+                <a class="helper-text">Forgot password?</a>
+              </div>
+            </div>
+            <div class="row">
+              <button class="btn waves-effect waves-light logBtn teal" type="submit" name="action" onClick={()=>{
+                setAnimState("animatedSlideOut")
+                setUserState(0)
+              }}>Log In</button><br/>
+              <button class="btn waves-effect waves-light logBtn teal">Sign Up</button>
+            </div>
+          </form>
+          </>)}
 
       </ul>
     </aside>
   );
-}
+} 
 
 export default Nav;

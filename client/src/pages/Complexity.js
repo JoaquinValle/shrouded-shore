@@ -6,7 +6,7 @@ function Complexity() {
   return (
     <Container>
       <Row>
-        <h1 className="header center teal-text">Complexity</h1>
+        <h1 className="header center teal-text text-lighten-1">Complexity</h1>
       </Row>
 
       <Row>

@@ -6,7 +6,7 @@ function Categories() {
   return (
     <Container>
       <Row>
-        <h1 className="header center teal-text">Categories</h1>
+        <h1 className="header center teal-text text-lighten-1">Categories</h1>
       </Row>
 
       <Row>
