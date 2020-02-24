@@ -18,7 +18,7 @@ function Top() {
     <Container>
 
       <Row>
-        <h1 className="header center teal-text">Top Games</h1>
+        <h1 className="header center teal-text text-lighten-1">Top Games</h1>
       </Row>
 
       <Row>

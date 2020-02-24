@@ -19,7 +19,7 @@ function Nav() {
   return (
   <>
     <div className="navbar-fixed">
-      <nav className="cyan darken-4">
+      <nav className="teal">
         <div className="nav-wrapper">
           <a href="/" className="brand-logo left">Shrouded Shore</a>
           <a href="#" data-target="ham-nav" className="sidenav-trigger right"><i className="material-icons">menu</i></a>

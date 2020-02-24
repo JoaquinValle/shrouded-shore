@@ -21,7 +21,7 @@ function Home() {
     <Container>
 
       <Row>
-        <h1 className="header center teal-text">New Games</h1>
+        <h1 className="header center teal-text text-lighten-1">New Games</h1>
       </Row>
 
       <Row>

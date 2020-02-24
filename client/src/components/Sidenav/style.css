@@ -11,7 +11,35 @@
     font-size: 40px;
 }
 
+.formWrapper{
+    padding: 10px;
+}
+
+.logBtn{
+    width:90px;
+    margin: 10px;
+}
+
+.helper-text{
+    cursor: pointer;
+    color: #42a5f5 !important;
+}
+
+#closeLogin{
+    visibility: hidden;
+}
+
+.topSidenav{
+    height:176px;
+    overflow: hidden;
+    background-color: #009688;
+}
+
 @media only screen and (min-width : 993px) {
+    .formWrapper{
+        padding: 30px;
+    }
+
     .sidenavWrapper{
         top: 85px;
     }
@@ -20,4 +48,87 @@
         width:210px;
         left:30px;
     }
+
+    .animatedSlideIn{
+        animation: sideToMidIn 1s forwards !important;
+    }
+
+    .animatedSlideOut{
+        animation: sideToMidOut 1s forwards !important;
+    }
+
+    #closeLogin{
+        position: absolute;
+        top:20px;
+        right: 20px;
+        color:white;
+        cursor: pointer;
+        visibility: visible;
+    }
 }
+
+@keyframes sideToMidIn {
+    0%{
+        width:210px;
+        left: 30px;
+    }
+
+    10%{
+        width: 210px;
+        left: 10px;
+    }
+
+    80%{
+        width: 950px;
+        left: 40px;
+    }
+
+    100%{
+        width:950px;
+        left: 30px;
+    }
+}
+
+@keyframes sideToMidOut {
+    100%{
+        width:210px;
+        left: 30px;
+    }
+
+    80%{
+        width: 210px;
+        left: 5px;
+    }
+
+    10%{
+        width: 950px;
+        left: 35px;
+    }
+
+    0%{
+        width:950px;
+        left: 30px;
+    }
+}
+
+/* @keyframes sideToMidIn {
+    0%{
+        width:210px;
+        left: 30px;
+    }
+
+    10%{
+        width: 210px;
+        left: 10px;
+    }
+
+    80%{
+        width: 950px;
+        left: 330px;
+    }
+
+    100%{
+        width:950px;
+        left: 300px;
+    }
+} */
