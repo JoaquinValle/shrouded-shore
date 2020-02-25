@@ -33,9 +33,10 @@ function Nav() {
                 </div>
               </form>
             </li>
-            <li className={locationState === "/top" ? "active" : "not-active"}><a href="/top">Top</a></li>
-            <li className={locationState === "/categories" ? "active" : "not-active"}><a href="/categories">Categories</a></li>
-            <li className={locationState === "/complexity" ? "active" : "not-active"}><a href="/complexity">Complexity</a></li>
+            <li className={locationState === "/" ? "active orange" : "not-active"}><a href="/">New</a></li>
+            <li className={locationState === "/top" ? "active orange" : "not-active"}><a href="/top">Top</a></li>
+            <li className={locationState === "/categories" ? "active orange" : "not-active"}><a href="/categories">Categories</a></li>
+            <li className={locationState === "/complexity" ? "active orange" : "not-active"}><a href="/complexity">Complexity</a></li>
           </ul>
         </div>
       </nav>
