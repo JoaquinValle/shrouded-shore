@@ -12,11 +12,12 @@ function Nav(props) {
 
   return (
     <aside>
+      <a href="#" data-target="sideNav" class="btn sidenav-trigger sidenavShow"><i class="material-icons white-text">account_circle</i></a>
       <ul id="sideNav" className={"sidenav sidenav-fixed sidenavWrapper "+animState}>
 
           {userState===0?(<>
           <li class="topSidenav"><div className="user-view">
-            <div className="background teal"></div>
+            <div className="background"></div>
             <a href="#profile"><img className="circle" src="https://randomuser.me/api/portraits/men/72.jpg" alt="profile"/></a>
             <a href="#profile"><span className="white-text name">Dohn Joe</span></a>
             <a href="#logout" onClick={()=>setUserState(1)}><span className="white-text email">Log Out</span></a>
@@ -26,24 +27,24 @@ function Nav(props) {
           <li><a href="#friends"><i className="material-icons">contacts</i>Friends</a></li>
           </>):userState===1?(
           <li class="topSidenav"><div className="user-view">
-            <div className="background teal"></div>
+            <div className="background"></div>
             <a href="#login" onClick={()=>{
               setAnimState("animatedSlideIn")
               setUserState(2)
             }}>
               <i className="material-icons logInIcon">account_circle</i>
-              <span className="white-text email">Log In</span>
+              <span className="white-text name logInText">Log In</span>
             </a>
           </div></li>
           ):(<>
           <li class="topSidenav"><div className="user-view">
-            <div className="background teal"></div>
+            <div className="background"></div>
             <i className="material-icons" id="closeLogin" onClick={()=>{
                 setAnimState("animatedSlideOut")
                 setUserState(1)
               }}>close</i>
             <i className="material-icons logInIcon">account_circle</i>
-            <span className="white-text email">Log In</span>
+            <span className="white-text name logInText">Log In</span>
           </div></li>
           <form class="formWrapper">
             <div class="row">

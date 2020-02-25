@@ -8,7 +8,16 @@
 
 .logInIcon{
     color: white;
-    font-size: 40px;
+    font-size: 70px !important;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+.logInText{
+    position: absolute;
+    top: 100px;
+    left: 38px;
 }
 
 .formWrapper{
@@ -35,7 +44,19 @@
     background-color: #009688;
 }
 
+.sidenavShow{
+    visibility: visible;
+    width: 30px;
+    padding: 0;
+    position: fixed;
+    top:160px;
+}
+
 @media only screen and (min-width : 993px) {
+    .sidenavShow{
+        visibility: hidden;
+    }
+
     .formWrapper{
         padding: 30px;
     }
