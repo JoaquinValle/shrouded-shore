@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import useWindowDimensions from "../../utils/useWindowDimensions"
 import "./style.css";
 import M from 'materialize-css';
 
 function Nav(props) {
+  const { height, width } = useWindowDimensions();
   const [userState, setUserState] = useState(1);
   const [animState, setAnimState] = useState("");
 
@@ -25,7 +27,7 @@ function Nav(props) {
           <li><a href="#profile"><i className="material-icons">account_circle</i>Profile</a></li>
           <li><a href="#games"><i className="material-icons">collections</i>Games</a></li>
           <li><a href="#friends"><i className="material-icons">contacts</i>Friends</a></li>
-          </>):userState===1?(
+          </>):(userState===1&&width>992)?(
           <li class="topSidenav"><div className="user-view">
             <div className="background"></div>
             <a href="#login" onClick={()=>{
