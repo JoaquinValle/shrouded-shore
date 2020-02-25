@@ -21,7 +21,8 @@ function Nav() {
     <div className="navbar-fixed">
       <nav className="teal">
         <div className="nav-wrapper">
-          <a href="/" className="brand-logo left">Shrouded Shore</a>
+          {/* <a href="/" className="brand-logo left"><img src={require("./ntsg_square.png")} alt="ntsg logo" height="64px"/></a> */}
+          <a href="/" className="brand-logo left"><img src={require("./ntsg_horizontal.png")} alt="ntsg logo" height="40px"/></a>
           <a href="#" data-target="ham-nav" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>

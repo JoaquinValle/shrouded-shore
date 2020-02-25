@@ -14,7 +14,7 @@ function Nav(props) {
 
   return (
     <aside>
-      <a href="#" data-target="sideNav" class="btn sidenav-trigger sidenavShow"><i class="material-icons white-text">account_circle</i></a>
+      <a href="#" data-target="sideNav" class="btn sidenav-trigger sidenavShow orange"><i class="material-icons white-text">account_circle</i></a>
       <ul id="sideNav" className={"sidenav sidenav-fixed sidenavWrapper "+animState}>
 
           {userState===0?(<>
