@@ -5,8 +5,8 @@ import Pagination from "../components/Pagination";
 import API from "../utils/API";
 
 function Home() {
-  const numDisplayed = 5;
-  const paginationSize = 6;
+  const numDisplayed = 4;
+  const paginationSize = 5;
   const [gamesState, setGamesState] = useState([]);
   const [pageState, setPageState] = useState(1);
 
