@@ -16,7 +16,7 @@ function Nav(props) {
       <ul id="sideNav" className={"sidenav sidenav-fixed sidenavWrapper "+animState}>
 
           {userState===0?(<>
-          <li class="topSidenav"><div className="user-view">
+          <li class="topSidenav"><div className="user-view mobileSidenavFix">
             <div className="background"></div>
             <a href="#profile"><img className="circle" src="https://randomuser.me/api/portraits/men/72.jpg" alt="profile"/></a>
             <a href="#profile"><span className="white-text name">Dohn Joe</span></a>
