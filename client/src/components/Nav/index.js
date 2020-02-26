@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import M from 'materialize-css';
 import { useLocation } from 'react-router-dom';
+import MatIcon from "../MatIcon"
 
 function Nav() {
   const location = useLocation();
@@ -23,14 +24,14 @@ function Nav() {
         <div className="nav-wrapper">
           {/* <a href="/" className="brand-logo left"><img src={require("./ntsg_square.png")} alt="ntsg logo" height="64px"/></a> */}
           <a href="/" className="brand-logo left"><img src={require("./ntsg_horizontal.png")} alt="ntsg logo" height="40px"/></a>
-          <a href="#" data-target="ham-nav" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
+          <a href="#" data-target="ham-nav" className="sidenav-trigger right"><MatIcon>menu</MatIcon></a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
               <form>
                 <div className="input-field">
                   <input id="search" type="search" required />
-                  <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-                  <i className="material-icons">close</i>
+                  <label className="label-icon" htmlFor="search"><MatIcon>search</MatIcon></label>
+                  <MatIcon>close</MatIcon>
                 </div>
               </form>
             </li>
@@ -47,7 +48,7 @@ function Nav() {
         <form>
           <div className="input-field sidenavSearch">
             <input id="search" type="search" required />
-            <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
+            <label className="label-icon" htmlFor="search"><MatIcon>search</MatIcon></label>
           </div>
         </form>
       </li>

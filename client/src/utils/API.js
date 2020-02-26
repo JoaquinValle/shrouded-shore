@@ -8,5 +8,9 @@ export default {
   
   BGA:function(gameName){
     return axios.get(`https://www.boardgameatlas.com/api/search?name=${gameName}&pretty=true&client_id=SB1VGnDv7M`);
+  },
+
+  gameId:function(id){
+    return axios.get(`https://www.boardgameatlas.com/api/search?ids=${id}&pretty=true&client_id=SB1VGnDv7M`);
   }
 };

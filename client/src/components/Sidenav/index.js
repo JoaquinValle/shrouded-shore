@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import useWindowDimensions from "../../utils/useWindowDimensions"
 import "./style.css";
 import M from 'materialize-css';
+import MatIcon from "../MatIcon"
 
 function Nav(props) {
   const { height, width } = useWindowDimensions();
@@ -14,7 +15,7 @@ function Nav(props) {
 
   return (
     <aside>
-      <a href="#" data-target="sideNav" className="btn sidenav-trigger sidenavShow orange"><i className="material-icons white-text">account_circle</i></a>
+      <a href="#" data-target="sideNav" className="btn sidenav-trigger sidenavShow orange"><MatIcon extraClass="white-text">account_circle</MatIcon></a>
       <ul id="sideNav" className={"sidenav sidenav-fixed sidenavWrapper "+animState}>
 
           {userState===0?(<>
@@ -24,9 +25,9 @@ function Nav(props) {
             <a href="#profile"><span className="white-text name">Dohn Joe</span></a>
             <a href="#logout" onClick={()=>setUserState(1)}><span className="white-text email">Log Out</span></a>
           </div></li>
-          <li><a href="#profile"><i className="material-icons">account_circle</i>Profile</a></li>
-          <li><a href="#games"><i className="material-icons">collections</i>Games</a></li>
-          <li><a href="#friends"><i className="material-icons">contacts</i>Friends</a></li>
+          <li><a href="#profile"><MatIcon>account_circle</MatIcon>Profile</a></li>
+          <li><a href="#games"><MatIcon>collections</MatIcon>Games</a></li>
+          <li><a href="#friends"><MatIcon>contacts</MatIcon>Friends</a></li>
           </>):(userState===1&&width>992)?(
           <li className="topSidenav"><div className="user-view">
             <div className="background"></div>
@@ -34,7 +35,7 @@ function Nav(props) {
               setAnimState("animatedSlideIn")
               setUserState(2)
             }}>
-              <i className="material-icons logInIcon">account_circle</i>
+              <MatIcon extraClass="logInIcon">account_circle</MatIcon>
               <span className="white-text name logInText">Log In</span>
             </a>
           </div></li>
@@ -45,20 +46,20 @@ function Nav(props) {
                 setAnimState("animatedSlideOut")
                 setUserState(1)
               }}>close</i>
-            <i className="material-icons logInIcon">account_circle</i>
+            <MatIcon extraClass="logInIcon">account_circle</MatIcon>
             <span className="white-text name logInText">Log In</span>
           </div></li>
           <form className="formWrapper">
             <div className="row">
               <div className="input-field col s12">
                 <input id="email" type="email" className="validate"/>
-                <label for="email">Email</label>
+                <label forHtml="email">Email</label>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s12">
                 <input id="password" type="password" className="validate"/>
-                <label for="password">Password</label>
+                <label forHtml="password">Password</label>
                 <a className="helper-text">Forgot password?</a>
               </div>
             </div>
