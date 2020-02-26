@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 function Nav() {
   const location = useLocation();
   const [locationState, setLocationState] = useState("/");
-
+  const [searchState, setSearchState] = useState();
 
   useEffect(() => {
     setLocationState(location.pathname);
@@ -15,6 +15,11 @@ function Nav() {
   useEffect(() => {
     M.Sidenav.init(document.querySelectorAll('#ham-nav'),{edge:'right',closeOnClick: true});
   }, []);
+
+  const test = (event) => {
+    event.preventDefault()
+    console.log(searchState)
+  }
 
   return (
   <>
@@ -26,9 +31,9 @@ function Nav() {
           <a href="#" data-target="ham-nav" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
-              <form>
+              <form onSubmit={test}>
                 <div className="input-field">
-                  <input id="search" type="search" required />
+                  <input id="search" onChange={(e) => setSearchState(e.target.value)} value={searchState} type="search" required />
                   <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
                   <i className="material-icons">close</i>
                 </div>
