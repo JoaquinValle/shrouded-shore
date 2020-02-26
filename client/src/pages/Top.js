@@ -4,7 +4,7 @@ import { Collection, CollectionItem } from "../components/Collection";
 import API from "../utils/API";
 
 function Top() {
-  const numDisplayed = 6;
+  const numDisplayed = 5;
   const [gamesState, setGamesState] = useState([]);
 
   useEffect(()=>{

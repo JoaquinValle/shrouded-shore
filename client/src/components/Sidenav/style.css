@@ -8,7 +8,16 @@
 
 .logInIcon{
     color: white;
-    font-size: 40px;
+    font-size: 70px !important;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+.logInText{
+    position: absolute;
+    top: 100px;
+    left: 38px;
 }
 
 .formWrapper{
@@ -32,10 +41,22 @@
 .topSidenav{
     height:176px;
     overflow: hidden;
-    background-color: #009688;
+    background-color: #ff9800;
+}
+
+.sidenavShow{
+    visibility: visible;
+    width: 30px;
+    padding: 0;
+    position: fixed;
+    top:160px;
 }
 
 @media only screen and (min-width : 993px) {
+    .sidenavShow{
+        visibility: hidden;
+    }
+
     .formWrapper{
         padding: 30px;
     }
@@ -64,6 +85,14 @@
         color:white;
         cursor: pointer;
         visibility: visible;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    .mobileSidenavFix{
+        position: relative;
+        top:20px;
+        left: 18px;
     }
 }
 
