@@ -1,9 +1,163 @@
+.sidenav-fixed{
+    width:220px;
+}
+
+.sidenav .user-view .name{
+    font-size: 18px;
+}
+
+.logInIcon{
+    color: white;
+    font-size: 70px !important;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+.logInText{
+    position: absolute;
+    top: 100px;
+    left: 38px;
+}
+
+.formWrapper{
+    padding: 10px;
+}
+
+.logBtn{
+    width:90px;
+    margin: 10px;
+}
+
+.helper-text{
+    cursor: pointer;
+    color: #42a5f5 !important;
+}
+
+#closeLogin{
+    visibility: hidden;
+}
+
+.topSidenav{
+    height:176px;
+    overflow: hidden;
+    background-color: #ff9800;
+}
+
+.sidenavShow{
+    visibility: visible;
+    width: 30px;
+    padding: 0;
+    position: fixed;
+    top:160px;
+}
+
 @media only screen and (min-width : 993px) {
+    .sidenavShow{
+        visibility: hidden;
+    }
+
+    .formWrapper{
+        padding: 30px;
+    }
+
     .sidenavWrapper{
-        top: 65px;
+        top: 85px;
+    }
+
+    .sidenav.sidenav-fixed{
+        width:210px;
+        left:30px;
+    }
+
+    .animatedSlideIn{
+        animation: sideToMidIn 1s forwards !important;
+    }
+
+    .animatedSlideOut{
+        animation: sideToMidOut 1s forwards !important;
+    }
+
+    #closeLogin{
+        position: absolute;
+        top:20px;
+        right: 20px;
+        color:white;
+        cursor: pointer;
+        visibility: visible;
     }
 }
 
-.sidenav-fixed{
-    width:170px;
+@media only screen and (max-width : 992px) {
+    .mobileSidenavFix{
+        position: relative;
+        top:20px;
+        left: 18px;
+    }
 }
+
+@keyframes sideToMidIn {
+    0%{
+        width:210px;
+        left: 30px;
+    }
+
+    10%{
+        width: 210px;
+        left: 10px;
+    }
+
+    80%{
+        width: 950px;
+        left: 40px;
+    }
+
+    100%{
+        width:950px;
+        left: 30px;
+    }
+}
+
+@keyframes sideToMidOut {
+    100%{
+        width:210px;
+        left: 30px;
+    }
+
+    80%{
+        width: 210px;
+        left: 5px;
+    }
+
+    10%{
+        width: 950px;
+        left: 35px;
+    }
+
+    0%{
+        width:950px;
+        left: 30px;
+    }
+}
+
+/* @keyframes sideToMidIn {
+    0%{
+        width:210px;
+        left: 30px;
+    }
+
+    10%{
+        width: 210px;
+        left: 10px;
+    }
+
+    80%{
+        width: 950px;
+        left: 330px;
+    }
+
+    100%{
+        width:950px;
+        left: 300px;
+    }
+} */
