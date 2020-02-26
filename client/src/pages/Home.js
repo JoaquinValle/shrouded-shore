@@ -11,7 +11,7 @@ function Home() {
   const [pageState, setPageState] = useState(1);
 
   useEffect(()=>{
-    API.BGA("catan")
+    API.getNew()
     .then(res=>{
       setGamesState(res.data.games);
     }).catch(err=>console.log(err));
