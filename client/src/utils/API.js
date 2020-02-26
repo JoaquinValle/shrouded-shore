@@ -40,10 +40,9 @@ export default {
         return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=91&lt_max_playtime=121&pretty=true&client_id=SB1VGnDv7M`)
       case "very-hard":
         return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=121&pretty=true&client_id=SB1VGnDv7M`)
-    },
-
+    }
+  },
   gameId:function(id){
     return axios.get(`https://www.boardgameatlas.com/api/search?ids=${id}&pretty=true&client_id=SB1VGnDv7M`);
-
   }
 };
