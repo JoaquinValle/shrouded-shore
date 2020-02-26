@@ -9,8 +9,8 @@ export default {
   BGA:function(gameName){
     return axios.get(`https://www.boardgameatlas.com/api/search?name=${gameName}&pretty=true&client_id=SB1VGnDv7M`);
   },
-  getTOP: function() {
-    return axios.get(`https://www.boardgameatlas.com/api/search?order_by=popularity&pretty=true&client_id=SB1VGnDv7M`)
+  getTop: function() {
+    return axios.get(`https://www.boardgameatlas.com/api/search?order_by=popularity&limit=20&pretty=true&client_id=SB1VGnDv7M`)
   },
 
   //filter by new
