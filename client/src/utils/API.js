@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/user/" + id);
   },
   
-  BGA:function(gameName){
+  getName:function(gameName){
     return axios.get(`https://www.boardgameatlas.com/api/search?name=${gameName}&limit=20&pretty=true&client_id=SB1VGnDv7M`);
   },
   getTop: function() {
@@ -24,7 +24,7 @@ export default {
   },
 
   //filter by category
-  getCategory: function(category) {
+  getCategories: function(category) {
     return axios.get(`https://www.boardgameatlas.com/api/search?categories&pretty=true&client_id=SB1VGnDv7M`)
   },
   //complexity
@@ -40,9 +40,10 @@ export default {
         return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=91&lt_max_playtime=121&pretty=true&client_id=SB1VGnDv7M`)
       case "very-hard":
         return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=121&pretty=true&client_id=SB1VGnDv7M`)
-    },
+    }
+  },
 
-  gameId:function(id){
+  getId:function(id){
     return axios.get(`https://www.boardgameatlas.com/api/search?ids=${id}&pretty=true&client_id=SB1VGnDv7M`);
 
   }
