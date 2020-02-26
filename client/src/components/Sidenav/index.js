@@ -14,11 +14,11 @@ function Nav(props) {
 
   return (
     <aside>
-      <a href="#" data-target="sideNav" class="btn sidenav-trigger sidenavShow orange"><i class="material-icons white-text">account_circle</i></a>
+      <a href="#" data-target="sideNav" className="btn sidenav-trigger sidenavShow orange"><i className="material-icons white-text">account_circle</i></a>
       <ul id="sideNav" className={"sidenav sidenav-fixed sidenavWrapper "+animState}>
 
           {userState===0?(<>
-          <li class="topSidenav"><div className="user-view mobileSidenavFix">
+          <li className="topSidenav"><div className="user-view mobileSidenavFix">
             <div className="background"></div>
             <a href="#profile"><img className="circle" src="https://randomuser.me/api/portraits/men/72.jpg" alt="profile"/></a>
             <a href="#profile"><span className="white-text name">Dohn Joe</span></a>
@@ -28,7 +28,7 @@ function Nav(props) {
           <li><a href="#games"><i className="material-icons">collections</i>Games</a></li>
           <li><a href="#friends"><i className="material-icons">contacts</i>Friends</a></li>
           </>):(userState===1&&width>992)?(
-          <li class="topSidenav"><div className="user-view">
+          <li className="topSidenav"><div className="user-view">
             <div className="background"></div>
             <a href="#login" onClick={()=>{
               setAnimState("animatedSlideIn")
@@ -39,7 +39,7 @@ function Nav(props) {
             </a>
           </div></li>
           ):(<>
-          <li class="topSidenav"><div className="user-view">
+          <li className="topSidenav"><div className="user-view">
             <div className="background"></div>
             <i className="material-icons" id="closeLogin" onClick={()=>{
                 setAnimState("animatedSlideOut")
@@ -48,26 +48,26 @@ function Nav(props) {
             <i className="material-icons logInIcon">account_circle</i>
             <span className="white-text name logInText">Log In</span>
           </div></li>
-          <form class="formWrapper">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" type="email" class="validate"/>
+          <form className="formWrapper">
+            <div className="row">
+              <div className="input-field col s12">
+                <input id="email" type="email" className="validate"/>
                 <label for="email">Email</label>
               </div>
             </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate"/>
+            <div className="row">
+              <div className="input-field col s12">
+                <input id="password" type="password" className="validate"/>
                 <label for="password">Password</label>
-                <a class="helper-text">Forgot password?</a>
+                <a className="helper-text">Forgot password?</a>
               </div>
             </div>
-            <div class="row">
-              <button class="btn waves-effect waves-light logBtn teal" type="submit" name="action" onClick={()=>{
+            <div className="row">
+              <button className="btn waves-effect waves-light logBtn teal" type="submit" name="action" onClick={()=>{
                 setAnimState("animatedSlideOut")
                 setUserState(0)
               }}>Log In</button><br/>
-              <button class="btn waves-effect waves-light logBtn teal">Sign Up</button>
+              <button className="btn waves-effect waves-light logBtn teal">Sign Up</button>
             </div>
           </form>
           </>)}
