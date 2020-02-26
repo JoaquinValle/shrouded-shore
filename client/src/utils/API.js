@@ -48,5 +48,6 @@ export default {
   getId:function(id){
     return axios.get(`https://www.boardgameatlas.com/api/search?ids=${id}&pretty=true&client_id=${BGA}`);
 
+
   }
 };
