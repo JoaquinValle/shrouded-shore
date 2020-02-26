@@ -1,8 +1,20 @@
 .brand-logo{
-    margin-left: 1rem;
+    margin-left: 32px;
+    margin-top: 13px;
+    color: white;
 }
 
 .sidenavSearch{
     padding-left:43px;
     padding-right: 15px;
+}
+
+input[type="search"] {
+    height: 64px !important;
+}
+
+@media only screen and (max-width : 992px) {
+    .brand-logo{
+        margin-left: 10px;
+    }
 }

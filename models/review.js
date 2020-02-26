@@ -23,6 +23,11 @@ const reviewSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "user"
+  },
+  //Game reviewed (API ids)
+  game: {
+    type: String,
+    required: true
   }
 });
 
