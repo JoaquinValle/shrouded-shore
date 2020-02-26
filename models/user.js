@@ -1,6 +1,7 @@
 // Dependencies
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const { hash } = require('../utils/auth');
 
 // Schema declaration
 const userSchema = new Schema({
@@ -16,15 +17,23 @@ const userSchema = new Schema({
     index: true,
     unique: true
   },
+  password: { 
+    type: String, 
+    required: true,
+    set: val => hash(val)
+  },
+
   //Link to profile picture
   profilePicture: {
     type: String
   },
   //Saved collections of games (DB ids)
-  collecitions: [{
-    type: Schema.Types.ObjectId,
-    ref: "collection"
-  }]
+  collections: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "collection"
+    }
+  ]
 });
 
 // Export the model
