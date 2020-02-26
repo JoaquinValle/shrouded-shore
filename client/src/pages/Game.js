@@ -11,7 +11,7 @@ function NoMatch() {
   const [pageState, setPageState] = useState(0);
 
   useEffect(() => {
-    API.gameId(id)
+    API.getId(id)
     .then(res=>{
       setGameState(res.data.games[0]);
       setPageState(1);
