@@ -14,6 +14,31 @@ router.route("/:id")
   .delete(userController.remove);
 
 router
+  .post('/signup', (req, res) => {
+    if(!req.body.email){
+      res.status(422).json({
+        errors: {
+          email : 'is required'
+        }
+      });
+    }else if(!req.body.password){
+      res.status(422).json({
+        errors: {
+          password: 'is required'
+        }
+      })
+    }else{
+      const {name, email, password} = req.body;
+      userController.create(req.body)
+      // const user = req.
+        .then((res) => {
+          res.json(res);
+        })
+    }
+  })
+  
+
+router
   .post('/login', (req, res) => {
     const { user, password } = req.body;
     db.User.findById({ username: user })
