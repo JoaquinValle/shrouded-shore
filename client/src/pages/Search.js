@@ -16,6 +16,15 @@ function Search() {
   let { search } = useParams();
 
   useEffect(()=>{
+    if(gamesState.length>0){
+      setLoadState(1);
+      setPaginationSize(Math.ceil(gamesState.length/numDisplayed));
+    }
+    else setLoadState(3);
+  },[gamesState]);
+
+  useEffect(()=>{
+    setLoadState(0);
     API.getName(search)
     .then(res=>{
       setGamesState(res.data.games);
@@ -24,14 +33,6 @@ function Search() {
       setLoadState(2);
     });
   },[location]);
-
-  useEffect(()=>{
-    if(gamesState.length>0){
-      setLoadState(1);
-      setPaginationSize(Math.ceil(gamesState.length/numDisplayed));
-    }
-    else setLoadState(3);
-  },[gamesState]);
 
   return (
     <Container>

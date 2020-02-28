@@ -8,7 +8,7 @@ import API from "../utils/API";
 
 function ByCategory() {
   const numDisplayed = 4;
-  const paginationSize = 5;
+  const [paginationSize, setPaginationSize] = useState(5);
   const [gamesState, setGamesState] = useState([]);
   const [pageState, setPageState] = useState(1);
   const [loadState, setLoadState] = useState(0);
@@ -17,6 +17,7 @@ function ByCategory() {
 
   useEffect(()=>{
     let categoryName = null;
+    setLoadState(0);
 
     API.getCategories()
     .then(res=>{
@@ -34,7 +35,7 @@ function ByCategory() {
             }else{
               setCategoryNameState(categoryName);
               console.log("Category is empty.");
-              setLoadState(2);
+              setLoadState(4);
             }
           }).catch(err=>{
             setCategoryNameState(categoryName);
@@ -50,8 +51,14 @@ function ByCategory() {
     }).catch(err=>{
       console.log(err)
     });
-
   },[]);
+
+  useEffect(()=>{
+    if(gamesState.length>0){
+      setLoadState(1);
+      setPaginationSize(Math.ceil(gamesState.length/numDisplayed));
+    }
+  },[gamesState]);
 
   return (
     <Container>
@@ -99,6 +106,12 @@ function ByCategory() {
       </Row>
       <Row>
         <p className="center">Category not found.</p>
+      </Row></>:loadState===4?<>
+      <Row>
+        <h1 className="header center teal-text text-lighten-1">Error</h1>
+      </Row>
+      <Row>
+        <p className="center">Category is empty.</p>
       </Row></>:
       <Loader></Loader>
       }
