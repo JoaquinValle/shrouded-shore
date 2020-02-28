@@ -1,4 +1,5 @@
 const db = require("../models");
+const utils = require('../utils/auth')
 
 // Defining methods for the userController
 module.exports = {
@@ -18,9 +19,17 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(user) {
-    db.User.create(user)
-      .then(user => res.json(user))
-      .catch(err => res.status(422).json(err));
+    const { name, mail, password} = user;
+    const payload = {
+      name,
+      mail,
+      password: utils.hash(password) || '1234'
+    }
+    debugger;
+    console.log(payload);
+    db.User.create(payload)
+      .then(res => {console.log(res)})
+      .catch((err) => {console.error(err)});
   },
   remove: function(req, res) {
     db.User.findById({ _id: req.params.id })
@@ -29,3 +38,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   }
 };
+
+
+// const { name, email, pw} = req.body
