@@ -1,23 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Collection, CollectionItem } from "../components/Collection";
 import Pagination from "../components/Pagination";
+import Loader from "../components/Loader"
 import API from "../utils/API";
 
 function Search() {
   const numDisplayed = 4;
-  const paginationSize = 5;
+  const [paginationSize, setPaginationSize] = useState(5);
   const [gamesState, setGamesState] = useState([]);
-  const [pageState, setPageState] = useState(1);
+  const [pageState, setPageState] = useState(parseInt(useLocation().hash.replace("#",""))||1);
+  const [loadState, setLoadState] = useState(0);
+  const location = useLocation();
   let { search } = useParams();
 
   useEffect(()=>{
+    if(gamesState.length>0){
+      setLoadState(1);
+      setPaginationSize(Math.ceil(gamesState.length/numDisplayed));
+    }
+    else setLoadState(3);
+  },[gamesState]);
+
+  useEffect(()=>{
+    setLoadState(0);
     API.getName(search)
     .then(res=>{
       setGamesState(res.data.games);
-    }).catch(err=>console.log(err));
-  },[]);
+    }).catch(err=>{
+      console.log(err)
+      setLoadState(2);
+    });
+  },[location,search]);
 
   return (
     <Container>
@@ -26,6 +41,7 @@ function Search() {
         <h1 className="header center teal-text text-lighten-1">Searching: "{search}"</h1>
       </Row>
 
+      {loadState===1?<>
       <Row>
         <Col size="s12">
           <Collection>
@@ -53,6 +69,16 @@ function Search() {
           setState={i=>setPageState(i)}
         />
       </Row>
+      </>:loadState===2?
+      <Row>
+        <p className="center">Error finding games, try again later..</p>
+      </Row>
+      :loadState===3?
+      <Row>
+        <p className="center">No games found.</p>
+      </Row>:
+      <Loader></Loader>
+      }
 
     </Container>
   );

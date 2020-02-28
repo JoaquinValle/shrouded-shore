@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Collection, CollectionItem } from "../components/Collection";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader"
 import API from "../utils/API";
 
-function Top() {
+function ByComplexity() {
   const numDisplayed = 4;
   const paginationSize = 5;
-  const [pageState, setPageState] = useState(parseInt(useLocation().hash.replace("#",""))||1);
   const [gamesState, setGamesState] = useState([]);
+  const [pageState, setPageState] = useState(parseInt(useLocation().hash.replace("#",""))||1);
   const [loadState, setLoadState] = useState(0);
+  let { complexity } = useParams();
 
   useEffect(()=>{
-    API.getTop()
+    API.getComplexity(complexity)
     .then(res=>{
       setGamesState(res.data.games);
       setLoadState(1);
@@ -22,16 +23,15 @@ function Top() {
       console.log(err)
       setLoadState(2);
     });
-  },[]);
+  },[complexity]);
 
   return (
     <Container>
-      
+      {loadState===1?<>
       <Row>
-        <h1 className="header center teal-text text-lighten-1">Top Games</h1>
+        <h1 className="header center teal-text text-lighten-1">{complexity.split("-").join(" ").replace(/(\b[a-z](?!\s))/g, c => c.toUpperCase())} Games</h1>
       </Row>
 
-      {loadState===1?<>
       <Row>
         <Col size="s12">
           <Collection>
@@ -59,14 +59,17 @@ function Top() {
           setState={i=>setPageState(i)}
         />
       </Row>
-      </>:loadState===2?
+      </>:loadState===2?<>
+      <Row>
+        <h1 className="header center teal-text text-lighten-1">Games</h1>
+      </Row>
       <Row>
         <p className="center">Error finding games, try again later..</p>
-      </Row>:
+      </Row></>:
       <Loader></Loader>
       }
 
     </Container>
   );
 }
-export default Top;
+export default ByComplexity;

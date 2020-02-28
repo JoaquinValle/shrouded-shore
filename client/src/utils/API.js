@@ -37,7 +37,7 @@ export default {
 
   // Search BGA API for all categories
   getCategories: function() {
-    return axios.get(`https://www.boardgameatlas.com/api/categories?&pretty=true&client_id=${BGA}`)
+    return axios.get(`https://www.boardgameatlas.com/api/game/categories?pretty=true&client_id=${BGA}`)
   },
 
   // Search BGA API for all categories
@@ -51,13 +51,18 @@ export default {
       case "very-easy":
         return axios.get(`https://www.boardgameatlas.com/api/search?lt_max_playtime=31&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
       case "easy":
-        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=30&lt_max_playtime=61&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
+        return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=30&lt_max_playtime=61&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
       case "moderate":
-        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=61&lt_max_playtime=91&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
+        return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=60&lt_max_playtime=91&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
       case "hard":
-        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=91&lt_max_playtime=121&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
+        return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=90&lt_max_playtime=121&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
       case "very-hard":
-        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=121&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
+        return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=120&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
+      default:
+        const errorPromise = new Promise(function(resolve, reject) {
+          throw new Error("Not a valid complexity..");
+        });
+        return errorPromise;
     }
   }
 };

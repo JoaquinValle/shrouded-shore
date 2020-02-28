@@ -8,22 +8,22 @@ import API from "../utils/API";
 function Game() {
   let { id } = useParams();
   const [gameState, setGameState] = useState();
-  const [pageState, setPageState] = useState(0);
+  const [loadState, setLoadState] = useState(0);
 
   useEffect(() => {
     API.getId(id)
     .then(res=>{
       setGameState(res.data.games[0]);
-      setPageState(1);
+      setLoadState(1);
     }).catch(err=>{
       console.log(err);
-      setPageState(2);
+      setLoadState(2);
     });
-  }, []);
+  }, [id]);
 
   return (
     <Container>
-      {pageState===1?<>
+      {loadState===1?<>
       <Row>
         <h1 className="header center teal-text text-lighten-1">{gameState.name}</h1>
       </Row>
@@ -50,7 +50,7 @@ function Game() {
         </Col>
 
       </Row>
-      </>:pageState===2?
+      </>:loadState===2?
       <Row>
         <h1 className="header center teal-text text-lighten-1">Game not found</h1>
       </Row>:
