@@ -20,20 +20,16 @@ const userSchema = new Schema({
   password: { 
     type: String, 
     required: true,
-    set: val => hash(val)
   },
 
   //Link to profile picture
   profilePicture: {
     type: String
   },
-  //Saved collections of games (DB ids)
-  collections: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "collection"
-    }
-  ]
+  //Array of liked games (API ids)
+  likedGames: [{
+    type: String
+  }]
 });
 
 // Export the model
