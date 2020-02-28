@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Collection, CollectionItem } from "../components/Collection";
 import Pagination from "../components/Pagination";
@@ -10,7 +10,7 @@ function ByCategory() {
   const numDisplayed = 4;
   const [paginationSize, setPaginationSize] = useState(5);
   const [gamesState, setGamesState] = useState([]);
-  const [pageState, setPageState] = useState(1);
+  const [pageState, setPageState] = useState(parseInt(useLocation().hash.replace("#",""))||1);
   const [loadState, setLoadState] = useState(0);
   const [categoryNameState, setCategoryNameState] = useState("");
   let { category } = useParams();
@@ -51,7 +51,7 @@ function ByCategory() {
     }).catch(err=>{
       console.log(err)
     });
-  },[]);
+  },[category]);
 
   useEffect(()=>{
     if(gamesState.length>0){

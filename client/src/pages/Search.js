@@ -10,7 +10,7 @@ function Search() {
   const numDisplayed = 4;
   const [paginationSize, setPaginationSize] = useState(5);
   const [gamesState, setGamesState] = useState([]);
-  const [pageState, setPageState] = useState(1);
+  const [pageState, setPageState] = useState(parseInt(useLocation().hash.replace("#",""))||1);
   const [loadState, setLoadState] = useState(0);
   const location = useLocation();
   let { search } = useParams();
@@ -32,7 +32,7 @@ function Search() {
       console.log(err)
       setLoadState(2);
     });
-  },[location]);
+  },[location,search]);
 
   return (
     <Container>

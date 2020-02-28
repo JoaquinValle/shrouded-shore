@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Collection, CollectionItem } from "../components/Collection";
 import Pagination from "../components/Pagination";
@@ -10,7 +10,7 @@ function ByComplexity() {
   const numDisplayed = 4;
   const paginationSize = 5;
   const [gamesState, setGamesState] = useState([]);
-  const [pageState, setPageState] = useState(1);
+  const [pageState, setPageState] = useState(parseInt(useLocation().hash.replace("#",""))||1);
   const [loadState, setLoadState] = useState(0);
   let { complexity } = useParams();
 
@@ -23,7 +23,7 @@ function ByComplexity() {
       console.log(err)
       setLoadState(2);
     });
-  },[]);
+  },[complexity]);
 
   return (
     <Container>

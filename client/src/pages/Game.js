@@ -19,7 +19,7 @@ function Game() {
       console.log(err);
       setLoadState(2);
     });
-  }, []);
+  }, [id]);
 
   return (
     <Container>

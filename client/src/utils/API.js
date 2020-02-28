@@ -60,7 +60,7 @@ export default {
         return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=120&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
       default:
         const errorPromise = new Promise(function(resolve, reject) {
-          throw "Not a valid complexity..";
+          throw new Error("Not a valid complexity..");
         });
         return errorPromise;
     }
