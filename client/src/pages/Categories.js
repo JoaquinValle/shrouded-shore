@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row, Container } from "../components/Grid";
+import { Row, Container } from "../components/Grid";
+import CategoryLink from "../components/CategoryLink";
 import Loader from "../components/Loader"
 import API from "../utils/API"
 
@@ -27,9 +28,7 @@ function Categories() {
       {loadState===1?
       <Row>
         {categoriesState.map(category=>(
-          <Col size="xl3 m4 s6" key={category.id}>
-            <a className="orange-text text-darken-1" href={`/categories/${category.id}`} >{category.name}</a>
-          </Col>
+          <CategoryLink key={category.id} id={category.id} name={category.name}/>
         ))}
       </Row>
       :loadState===2?

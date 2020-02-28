@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
+import CategoryLink from "../components/CategoryLink";
 import Loader from "../components/Loader"
 import MatIcon from "../components/MatIcon"
 import API from "../utils/API";
@@ -9,6 +10,7 @@ function Game() {
   let { id } = useParams();
   const [gameState, setGameState] = useState();
   const [loadState, setLoadState] = useState(0);
+  const [categoriesState, setCategoriesState] = useState([]);
 
   useEffect(() => {
     API.getId(id)
@@ -20,6 +22,25 @@ function Game() {
       setLoadState(2);
     });
   }, [id]);
+
+  useEffect(()=>{
+    if(gameState){
+      API.getCategories()
+      .then(res=>{
+        let categories = [];
+        for(let categoryRes of res.data.categories){
+          for(let categoryGame of gameState.categories){
+            if(categoryRes.id === categoryGame.id){
+              categories.push(categoryRes);
+            }
+          }
+        }
+        if(categories.length>0)setCategoriesState(categories);
+      }).catch(err=>{
+        console.log(err);
+      });
+    }
+  },[gameState]);
 
   return (
     <Container>
@@ -48,8 +69,17 @@ function Game() {
             
           </div>
         </Col>
-
       </Row>
+
+      {categoriesState.length>0?
+      <Row>
+        <h4 className="center teal-text text-lighten-1">Game's Categories</h4>
+        {categoriesState.map(category=>(
+          <CategoryLink key={category.id} id={category.id} name={category.name}/>
+        ))}
+      </Row>:<></>}
+
+      
       </>:loadState===2?
       <Row>
         <h1 className="header center teal-text text-lighten-1">Game not found</h1>
