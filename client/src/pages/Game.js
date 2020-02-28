@@ -5,7 +5,7 @@ import Loader from "../components/Loader"
 import MatIcon from "../components/MatIcon"
 import API from "../utils/API";
 
-function NoMatch() {
+function Game() {
   let { id } = useParams();
   const [gameState, setGameState] = useState();
   const [pageState, setPageState] = useState(0);
@@ -59,4 +59,4 @@ function NoMatch() {
   );
 }
 
-export default NoMatch;
+export default Game;

@@ -13,14 +13,14 @@ export function Collection({ children }) {
 
 export function CollectionItem(props) {
   return(
-    <li className="collection-item" id={props.id}><a className="collectionLink" href={"/"+props.id}>
-      <Col size="xl1 l1 s2">
+    <li className="collection-item" id={props.id}><a className="collectionLink" href={`/games/${props.id}`}>
+      <Col size="xl1 l2 s3">
         <img src={props.image} alt="" className="imgCollection"/>
       </Col>
           
-      <Col size={props.content!==""?"xl4 l5 s10":"xl11 s10"}>
+      <Col size="xl4 l4 s9">
         <Col size="s12">
-          <h5 className="title">{props.title.length<=38?props.title:props.title.slice(0,38).trim()+("..")}</h5>
+          <h5 className="title">{props.title.length<=18?props.title:props.title.slice(0,15).trim()+("..")}</h5>
         </Col>
         {props.players!==null?(
           <Col>
@@ -34,10 +34,8 @@ export function CollectionItem(props) {
         ):""}
       </Col>
 
-      {props.content!==""?(
-        <Col size="xl7 l6 s12">
-          <p>{props.content.replace("�","").slice(0,200).trim()+".."}</p>
-        </Col>
-      ):""}
+      <Col size="xl7 l6 s12">
+        <p>{props.content?props.content.replace("�","").slice(0,200).trim()+"..":"Game description not found.."}</p>
+      </Col>
     </a></li>);
 }
