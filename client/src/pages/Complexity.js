@@ -1,6 +1,6 @@
 import React from "react";
-// import React, { useState, useEffect } from "react";
-import { Col, Row, Container } from "../components/Grid";
+import { Row, Container } from "../components/Grid";
+import ComplexityButton from "../components/ComplexityButton"
 
 function Complexity() {
   return (
@@ -10,9 +10,11 @@ function Complexity() {
       </Row>
 
       <Row>
-        <Col size="s12">
-          
-        </Col>
+        <ComplexityButton icon="looks_one">Very Easy</ComplexityButton>
+        <ComplexityButton icon="looks_two">Easy</ComplexityButton>
+        <ComplexityButton icon="looks_3">Moderate</ComplexityButton>
+        <ComplexityButton icon="looks_4">Hard</ComplexityButton>
+        <ComplexityButton icon="looks_5">Very Hard</ComplexityButton>
       </Row>
     </Container>
   );
