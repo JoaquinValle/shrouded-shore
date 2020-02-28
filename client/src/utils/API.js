@@ -3,6 +3,10 @@ const BGA = process.env.REACT_APP_BGA;
 
 
 let id = "mslELa9SkR"
+let date = new Date()
+let year = date.getFullYear() + 1
+
+
 export default {
   // Get user by id
   getUser: function(id) {
@@ -22,8 +26,7 @@ export default {
 
   //filter by new
   getNew: function() {
-    let res = axios.get(`https://www.boardgameatlas.com/api/search?order_by=year_published&pretty=true&client_id=${id}`)
-    return res
+    return axios.get(`https://www.boardgameatlas.com/api/search?order_by=year_published&lt_year_published=${year}&pretty=true&client_id=${id}`)
   },
 
   //filter by category

@@ -10,10 +10,9 @@ function Home() {
   const [gamesState, setGamesState] = useState([]);
   const [pageState, setPageState] = useState(1);
 
-  useEffect(()=>{
-    API.getNew()
-    .then(res=>{
-      setGamesState(res.data.games);
+   useEffect(()=>{
+    API.getNew().then(res=>{
+     setGamesState(res.data.games);
     }).catch(err=>console.log(err));
   },[]);
 
