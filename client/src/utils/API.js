@@ -1,5 +1,6 @@
 import axios from "axios";
 const BGA = process.env.REACT_APP_BGA;
+const limit = 20;
 
 
 let id = "mslELa9SkR"
@@ -8,47 +9,61 @@ let year = date.getFullYear() + 1
 
 
 export default {
-  // Get user by id
+  // Get user by id from DB
   getUser: function(id) {
     return axios.get("/api/user/" + id);
   },
   
-  BGA:function(gameName){
-    return axios.get(`https://www.boardgameatlas.com/api/search?name=${gameName}&limit=20&pretty=true&client_id=${id}`);
+  // Search BGA API by game id
+  getId:function(id){
+    return axios.get(`https://www.boardgameatlas.com/api/search?ids=${id}&pretty=true&client_id=${BGA}`);
   },
+
+  // Search BGA API by game name
+  getName:function(gameName){
+    return axios.get(`https://www.boardgameatlas.com/api/search?name=${gameName}&limit=${limit}&pretty=true&client_id=${BGA}`);
+  },
+
+  // Search BGA API by popularity
   getTop: function() {
-    return axios.get(`https://www.boardgameatlas.com/api/search?order_by=popularity&limit=20&pretty=true&client_id=${id}`)
+    return axios.get(`https://www.boardgameatlas.com/api/search?order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
   },
 
+  // Search BGA API for random games
   getRandom: function() {
-    return axios.get(`https://www.boardgameatlas.com/api/search?order_by=popularity&limit=20&pretty=true&client_id=${id}`)
+    return axios.get(`https://www.boardgameatlas.com/api/search?order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
   },
 
-  //filter by new
+  // Search BGA API by year published
   getNew: function() {
-    return axios.get(`https://www.boardgameatlas.com/api/search?order_by=year_published&lt_year_published=${year}&pretty=true&client_id=${id}`)
+    const date = new Date();
+    const year = date.getFullYear()+1;
+    return axios.get(`https://www.boardgameatlas.com/api/search?order_by=year_published&lt_year_published=${year}&popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
   },
 
-  //filter by category
-  getCategory: function(category) {
-    return axios.get(`https://www.boardgameatlas.com/api/search?categories&pretty=true&client_id=${id}`)
+  // Search BGA API for all categories
+  getCategories: function() {
+    return axios.get(`https://www.boardgameatlas.com/api/categories?&pretty=true&client_id=${BGA}`)
   },
-  //complexity
+
+  // Search BGA API for all categories
+  getCategoryId: function(categoryId) {
+    return axios.get(`https://www.boardgameatlas.com/api/search?categories=${categoryId}&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
+  },
+
+  // Search BGA API by complexity, which is divided by game time
   getComplexity: function(complexity) {
     switch(complexity) {
       case "very-easy":
-        return axios.get(`https://www.boardgameatlas.com/api/search?lt_max_playtime=31&pretty=true&client_id=${id}`)
+        return axios.get(`https://www.boardgameatlas.com/api/search?lt_max_playtime=31&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
       case "easy":
-        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=30&lt_max_playtime=61&pretty=true&client_id=${id}`)
+        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=30&lt_max_playtime=61&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
       case "moderate":
-        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=61&lt_max_playtime=91&pretty=true&client_id=${id}`)
+        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=61&lt_max_playtime=91&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
       case "hard":
-        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=91&lt_max_playtime=121&pretty=true&client_id=${id}`)
+        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=91&lt_max_playtime=121&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
       case "very-hard":
-        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=121&pretty=true&client_id=${id}`)
+        return axios.get(`https://www.boardgameatlas.com/api/search?mt_max_playtime=121&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
     }
-  },
-  gameId:function(id){
-    return axios.get(`https://www.boardgameatlas.com/api/search?ids=${id}&pretty=true&client_id=${id}`);
   }
 };
