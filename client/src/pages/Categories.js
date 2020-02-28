@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API"
@@ -6,6 +6,14 @@ import API from "../utils/API"
 
 
 function Categories() {
+    const [categoryState, setCategoryState] = useState([])
+
+  useEffect(() => {
+    API.getCategory()
+    .then((res) => {
+      setCategoryState(res.data.categories)
+    }).catch((err) => console.log(err))
+  })
   return (
     <Container>
       <Row>
