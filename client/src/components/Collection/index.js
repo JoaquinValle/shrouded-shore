@@ -1,6 +1,7 @@
 import React from "react";
-import { Col } from "../Grid";
 import "./style.css";
+import { Col } from "../Grid";
+import MatIcon from "../MatIcon"
 
 // This file exports both the Collection and CollectionItem components
 
@@ -12,7 +13,7 @@ export function Collection({ children }) {
 
 export function CollectionItem(props) {
   return(
-    <li className="collection-item" id={props.id}>
+    <li className="collection-item" id={props.id}><a className="collectionLink" href={"/"+props.id}>
       <Col size="xl1 l1 s2">
         <img src={props.image} alt="" className="imgCollection"/>
       </Col>
@@ -23,12 +24,12 @@ export function CollectionItem(props) {
         </Col>
         {props.players!==null?(
           <Col>
-            <i className="material-icons iconText orange-text">group</i> {props.players} players
+            <MatIcon extraClass="iconText orange-text">group</MatIcon> {props.players} players
           </Col>
         ):""}
         {props.time!==null?(
           <Col>
-            <i className="material-icons iconText orange-text">timer</i> {props.time} minutes
+            <MatIcon extraClass="iconText orange-text">timer</MatIcon> {props.time} minutes
           </Col>
         ):""}
       </Col>
@@ -38,5 +39,5 @@ export function CollectionItem(props) {
           <p>{props.content.replace("�","").slice(0,200).trim()+".."}</p>
         </Col>
       ):""}
-    </li>);
+    </a></li>);
 }

@@ -10,6 +10,10 @@
     margin-top: 25px;
 }
 
+.collectionLink{
+    color:#212121;
+}
+
 @media only screen and (max-width : 1500px) {
     .collection-item{
         height: 190px;

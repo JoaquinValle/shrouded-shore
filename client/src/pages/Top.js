@@ -8,7 +8,7 @@ function Top() {
   const [gamesState, setGamesState] = useState([]);
 
   useEffect(()=>{
-    API.BGA("catan")
+    API.getTop()
     .then(res=>{
       setGamesState(res.data.games);
     }).catch(err=>console.log(err));
@@ -16,7 +16,7 @@ function Top() {
 
   return (
     <Container>
-
+      
       <Row>
         <h1 className="header center teal-text text-lighten-1">Top Games</h1>
       </Row>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import MatIcon from "../MatIcon"
 
 function Pagination(props) {
   const arr = [];
@@ -10,7 +11,7 @@ function Pagination(props) {
           props.setState(props.current-1)
           window.scrollTo(0, 0)
         }}>
-        <i className="material-icons">chevron_left</i></a></li>
+        <MatIcon>chevron_left</MatIcon></a></li>
       {arr.map(i=>(
         <li key={i} className={props.current===i?"active orange":"waves-effect waves-light"}><a onClick={()=>{
           props.setState(i)
@@ -21,7 +22,7 @@ function Pagination(props) {
         props.setState(props.current+1)
         window.scrollTo(0, 0)
       }}>
-        <i className="material-icons">chevron_right</i></a></li>
+        <MatIcon>chevron_right</MatIcon></a></li>
     </ul>
   );
 }
