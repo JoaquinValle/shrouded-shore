@@ -5,7 +5,7 @@ import M from 'materialize-css';
 import MatIcon from "../MatIcon"
 
 function Nav(props) {
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const [userState, setUserState] = useState(1);
   const [animState, setAnimState] = useState("");
 
@@ -15,7 +15,7 @@ function Nav(props) {
 
   return (
     <aside>
-      <a href="#" data-target="sideNav" className="btn sidenav-trigger sidenavShow orange"><MatIcon extraClass="white-text">account_circle</MatIcon></a>
+      <a href="#sidenav" data-target="sideNav" className="btn sidenav-trigger sidenavShow orange"><MatIcon extraClass="white-text">account_circle</MatIcon></a>
       <ul id="sideNav" className={"sidenav sidenav-fixed sidenavWrapper "+animState}>
 
           {userState===0?(<>
@@ -36,7 +36,6 @@ function Nav(props) {
               setUserState(2)
             }}>
               <MatIcon extraClass="logInIcon">account_circle</MatIcon>
-              {/* <img src={require("./ntsg_square.png")} alt="logo" width="64px"/> */}
               <span className="white-text name logInText">Log In</span>
             </a>
           </div></li>
@@ -48,7 +47,6 @@ function Nav(props) {
                 setUserState(1)
               }}>close</i>
             <MatIcon extraClass="logInIcon">account_circle</MatIcon>
-            {/* <img src={require("./ntsg_square.png")} alt="logo" width="64px"/> */}
             <span className="white-text name logInText">Log In</span>
           </div></li>
           <form className="formWrapper">
@@ -62,7 +60,7 @@ function Nav(props) {
               <div className="input-field col s12">
                 <input id="password" type="password" className="validate"/>
                 <label forHtml="password">Password</label>
-                <a className="helper-text">Forgot password?</a>
+                <a href="/recover-password" className="helper-text">Forgot password?</a>
               </div>
             </div>
             <div className="row">

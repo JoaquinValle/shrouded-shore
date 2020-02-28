@@ -36,7 +36,7 @@ function Nav() {
         <div className="nav-wrapper">
           <a href="/" className="brand-logo left"><img src={require("./ntsg_square.png")} alt="ntsg square" className="logoSq"/></a>
           <a href="/" className="brand-logo left"><img src={require("./ntsg_horizontal.png")} alt="ntsg logo" className="logoLn"/></a>
-          <a href="#" data-target="ham-nav" className="sidenav-trigger right"><MatIcon>menu</MatIcon></a>
+          <a href="#menu" data-target="ham-nav" className="sidenav-trigger right"><MatIcon>menu</MatIcon></a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
               <form onSubmit={onSubmit}>
