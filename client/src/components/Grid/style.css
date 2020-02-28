@@ -1,5 +1,22 @@
+.container{
+    width:300px;
+}
+
+@media only screen and (min-width : 601px) {
+    .container{
+        width:550px;
+    }
+}
+
 @media only screen and (min-width : 993px) {
     .container{
-        padding-left: 150px;
+        padding-left: 200px;
+        width: 800px;
+    }
+}
+
+@media only screen and (min-width : 1201px) {
+    .container{
+        width:1050px;
     }
 }

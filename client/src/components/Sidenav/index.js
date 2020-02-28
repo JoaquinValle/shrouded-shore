@@ -35,8 +35,8 @@ function Nav(props) {
               setAnimState("animatedSlideIn")
               setUserState(2)
             }}>
-              {/* <MatIcon extraClass="logInIcon">account_circle</MatIcon> */}
-              <img src={require("./ntsg_square.png")} alt="logo" width="64px"/>
+              <MatIcon extraClass="logInIcon">account_circle</MatIcon>
+              {/* <img src={require("./ntsg_square.png")} alt="logo" width="64px"/> */}
               <span className="white-text name logInText">Log In</span>
             </a>
           </div></li>
@@ -47,8 +47,8 @@ function Nav(props) {
                 setAnimState("animatedSlideOut")
                 setUserState(1)
               }}>close</i>
-            {/* <MatIcon extraClass="logInIcon">account_circle</MatIcon> */}
-            <img src={require("./ntsg_square.png")} alt="logo" width="64px"/>
+            <MatIcon extraClass="logInIcon">account_circle</MatIcon>
+            {/* <img src={require("./ntsg_square.png")} alt="logo" width="64px"/> */}
             <span className="white-text name logInText">Log In</span>
           </div></li>
           <form className="formWrapper">
