@@ -27,8 +27,8 @@ function Nav() {
     <div className="navbar-fixed">
       <nav className="teal">
         <div className="nav-wrapper">
-          {/* <a href="/" className="brand-logo left"><img src={require("./ntsg_square.png")} alt="ntsg logo" height="64px"/></a> */}
-          <a href="/" className="brand-logo left"><img src={require("./ntsg_horizontal.png")} alt="ntsg logo" height="40px"/></a>
+          <a href="/" className="brand-logo left"><img src={require("./ntsg_square.png")} alt="ntsg square" className="logoSq"/></a>
+          <a href="/" className="brand-logo left"><img src={require("./ntsg_horizontal.png")} alt="ntsg logo" className="logoLn"/></a>
           <a href="#" data-target="ham-nav" className="sidenav-trigger right"><MatIcon>menu</MatIcon></a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>

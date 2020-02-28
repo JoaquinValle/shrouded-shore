@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Collection, CollectionItem } from "../components/Collection";
 import Pagination from "../components/Pagination";
 import API from "../utils/API";
 
-function Top() {
+function Search() {
   const numDisplayed = 4;
   const paginationSize = 5;
-  const [pageState, setPageState] = useState(1);
   const [gamesState, setGamesState] = useState([]);
+  const [pageState, setPageState] = useState(1);
+  let { search } = useParams();
 
   useEffect(()=>{
-    API.getTop()
+    API.getName(search)
     .then(res=>{
       setGamesState(res.data.games);
     }).catch(err=>console.log(err));
@@ -19,9 +21,9 @@ function Top() {
 
   return (
     <Container>
-      
+
       <Row>
-        <h1 className="header center teal-text text-lighten-1">Top Games</h1>
+        <h1 className="header center teal-text text-lighten-1">Searching: "{search}"</h1>
       </Row>
 
       <Row>
@@ -55,4 +57,4 @@ function Top() {
     </Container>
   );
 }
-export default Top;
+export default Search;

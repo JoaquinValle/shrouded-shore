@@ -13,8 +13,31 @@ input[type="search"] {
     height: 64px !important;
 }
 
+.logoSq{
+    position: relative;
+    top:-5px;
+    height: 50px;
+}
+
+.logoLn{
+    position: relative;
+    left:70px;
+    visibility: visible;
+    height: 40px;
+}
+
 @media only screen and (max-width : 992px) {
     .brand-logo{
         margin-left: 10px;
+    }
+
+    .logoLn{
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    .logoSq{
+        height:40px;
     }
 }

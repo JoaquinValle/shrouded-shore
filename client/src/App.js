@@ -5,6 +5,7 @@ import Top from "./pages/Top";
 import Categories from "./pages/Categories";
 import Complexity from "./pages/Complexity";
 import Game from "./pages/Game";
+import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Sidenav from "./components/Sidenav";
@@ -20,7 +21,8 @@ function App() {
           <Route exact path="/top" component={Top} />
           <Route exact path="/categories" component={Categories} />
           <Route exact path="/complexity" component={Complexity} />
-          <Route path="/:id" component={Game} />
+          <Route exact path="/games/:id" component={Game} />
+          <Route exact path="/search/:search" component={Search} />
           <Route exact path="/" component={Home} />
           <Route component={NoMatch} />
         </Switch>
