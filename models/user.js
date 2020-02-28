@@ -20,10 +20,9 @@ const userSchema = new Schema({
   profilePicture: {
     type: String
   },
-  //Saved collections of games (DB ids)
-  collecitions: [{
-    type: Schema.Types.ObjectId,
-    ref: "collection"
+  //Array of liked games (API ids)
+  likedGames: [{
+    type: String
   }]
 });
 
