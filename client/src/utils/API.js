@@ -37,7 +37,7 @@ export default {
 
   // Search BGA API for all categories
   getCategories: function() {
-    return axios.get(`https://www.boardgameatlas.com/api/categories?&pretty=true&client_id=${BGA}`)
+    return axios.get(`https://www.boardgameatlas.com/api/game/categories?pretty=true&client_id=${BGA}`)
   },
 
   // Search BGA API for all categories
@@ -58,6 +58,11 @@ export default {
         return axios.get(`https://www.boardgameatlas.com/api/search?gt_min_playtime=90&lt_max_playtime=121&order_by=popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
       case "very-hard":
         return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=120&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
+      default:
+        const errorPromise = new Promise(function(resolve, reject) {
+          throw "Not a valid complexity..";
+        });
+        return errorPromise;
     }
   }
 };

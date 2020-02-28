@@ -6,33 +6,60 @@ import Pagination from "../components/Pagination";
 import Loader from "../components/Loader"
 import API from "../utils/API";
 
-function Search() {
+function ByCategory() {
   const numDisplayed = 4;
   const paginationSize = 5;
   const [gamesState, setGamesState] = useState([]);
   const [pageState, setPageState] = useState(1);
   const [loadState, setLoadState] = useState(0);
-  let { search } = useParams();
+  const [categoryNameState, setCategoryNameState] = useState("");
+  let { category } = useParams();
 
   useEffect(()=>{
-    API.getName(search)
+    let categoryName = null;
+
+    API.getCategories()
     .then(res=>{
-      setGamesState(res.data.games);
-      setLoadState(1);
+      if(res.data.categories){
+        categoryName = res.data.categories.filter(cat=>cat.id===category)[0]||null;
+        categoryName?categoryName=categoryName.name:categoryName = null;
+
+        if(categoryName){
+          API.getCategoryId(category)
+          .then(res=>{
+            if(res.data.games.length>0){
+              setCategoryNameState(categoryName);
+              setGamesState(res.data.games);
+              setLoadState(1);
+            }else{
+              setCategoryNameState(categoryName);
+              console.log("Category is empty.");
+              setLoadState(2);
+            }
+          }).catch(err=>{
+            setCategoryNameState(categoryName);
+            console.log(err);
+            setLoadState(2);
+          });
+        } else {
+          console.log("Category not found.")
+          setLoadState(3);
+        }
+
+      }
     }).catch(err=>{
       console.log(err)
-      setLoadState(2);
     });
+
   },[]);
 
   return (
     <Container>
-
+      {loadState===1?<>
       <Row>
-        <h1 className="header center teal-text text-lighten-1">Searching: "{search}"</h1>
+        <h1 className="header center teal-text text-lighten-1">Category: {categoryNameState}</h1>
       </Row>
 
-      {loadState===1?<>
       <Row>
         <Col size="s12">
           <Collection>
@@ -60,14 +87,23 @@ function Search() {
           setState={i=>setPageState(i)}
         />
       </Row>
-      </>:loadState===2?
+      </>:loadState===2?<>
       <Row>
-        <p className="center">Error finding games, try again later..</p>
-      </Row>:
+        <h1 className="header center teal-text text-lighten-1">Error</h1>
+      </Row>
+      <Row>
+        <p className="center">Error finding games, try again later.</p>
+      </Row></>:loadState===3?<>
+      <Row>
+        <h1 className="header center teal-text text-lighten-1">Error</h1>
+      </Row>
+      <Row>
+        <p className="center">Category not found.</p>
+      </Row></>:
       <Loader></Loader>
       }
 
     </Container>
   );
 }
-export default Search;
+export default ByCategory;

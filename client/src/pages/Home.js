@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import { Collection, CollectionItem } from "../components/Collection";
 import Pagination from "../components/Pagination";
+import Loader from "../components/Loader"
 import API from "../utils/API";
 
 function Home() {
@@ -9,12 +10,17 @@ function Home() {
   const paginationSize = 5;
   const [gamesState, setGamesState] = useState([]);
   const [pageState, setPageState] = useState(1);
+  const [loadState, setLoadState] = useState(0);
 
   useEffect(()=>{
     API.getNew()
     .then(res=>{
       setGamesState(res.data.games);
-    }).catch(err=>console.log(err));
+      setLoadState(1);
+    }).catch(err=>{
+      console.log(err)
+      setLoadState(2);
+    });
   },[]);
 
   return (
@@ -24,6 +30,7 @@ function Home() {
         <h1 className="header center teal-text text-lighten-1">New Games</h1>
       </Row>
 
+      {loadState===1?<>
       <Row>
         <Col size="s12">
           <Collection>
@@ -51,6 +58,12 @@ function Home() {
           setState={i=>setPageState(i)}
         />
       </Row>
+      </>:loadState===2?
+      <Row>
+      <p>Error finding games, try again later..</p>
+      </Row>:
+      <Loader></Loader>
+      }
 
     </Container>
   );
