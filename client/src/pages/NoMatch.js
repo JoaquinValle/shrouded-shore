@@ -1,4 +1,7 @@
+// Dependencies
 import React from "react";
+
+// React Components
 import { Col, Row, Container } from "../components/Grid";
 
 function NoMatch() {

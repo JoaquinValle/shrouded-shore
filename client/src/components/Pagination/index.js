@@ -1,7 +1,13 @@
+// Dependencies
 import React from "react";
-import "./style.css";
+
+// Other Components
 import MatIcon from "../MatIcon"
 
+// Style Import
+import "./style.css";
+
+// Pagination components receives how many numbers, and the active number, and sets the left and right arrows accordingly
 function Pagination(props) {
   const arr = [];
   for(let i=1;i<=props.size;i++)arr.push(i);

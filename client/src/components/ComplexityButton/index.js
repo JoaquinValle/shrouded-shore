@@ -1,9 +1,15 @@
+// Dependencies
 import React , { useEffect } from "react";
 import M from 'materialize-css';
+
+// Other Components
 import MatIcon from "../MatIcon";
 import { Col } from "../Grid";
+
+// Style Import
 import "./style.css";
 
+// Complexity button displays the different complexities with links to each of its pages
 function ComplexityButton(props) {
 
   useEffect(() => {
