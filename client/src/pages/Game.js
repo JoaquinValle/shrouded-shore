@@ -88,8 +88,8 @@ function Game() {
         <Col size="m4 s6">
           {gameState.designers.length>0?
           <Row>
-            <Col><MatIcon extraClass="iconText orange-text" tooltip="designer">face</MatIcon>
-            {` ${gameState.designers}`}</Col>
+            <Col><MatIcon extraClass="iconText orange-text" tooltip="designer(s)">face</MatIcon>
+            {` ${gameState.designers.join(", ")}`}</Col>
           </Row>
           :""}
 
