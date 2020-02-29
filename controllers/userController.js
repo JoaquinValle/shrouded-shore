@@ -1,4 +1,6 @@
 const db = require("../models");
+const jwt = require("jsonwebtoken");
+const secret = process.env.secret;
 // const { hashSync } = require('bcrypt');
 
 // const utils = require('../utils/auth')
@@ -47,13 +49,16 @@ module.exports = {
     return jwt.sign({
       mail: user.mail,
       exp: parseInt(expirationDate.getTime() / 1000, 10),
-    }, '$#R0ud3d-$#0R3');
+    }, secret);
   },
   toAuthJSON: function(user){
     return{
       mail: user.mail,
       token: this.generateJWT(user)
     }
+  },
+  checkJWTToken: function(token){
+    return jwt.verify(token, key);
   }
 };
 

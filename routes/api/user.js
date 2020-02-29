@@ -43,11 +43,12 @@ router
   .post('/login', async (req, res) => {
     const { mail, password } = req.body;
     try{
-    let user = await userController.findByUsername({mail})
+    let user = await userController.findByUsername({mail});
       // if(compare(password)) {
       // res.send({message: 'holi'})  // cambiar por jwt
-      res.json({ token: userController.toAuthJSON(user).token})
-      // } else res.send({message: 'bye'})
+      if(user){
+        res.json({ token: userController.toAuthJSON(user).token});
+      } else res.json({message: 'User not found'});
     } catch(err){
       console.log(err)
     }
