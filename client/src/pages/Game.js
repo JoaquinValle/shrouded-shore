@@ -65,44 +65,44 @@ function Game() {
         <Col size="m4 s6">            
           {gameState.min_players&&gameState.max_players?
           <Row>
-            <Col><MatIcon extraClass="iconText orange-text">group</MatIcon> 
+            <Col><MatIcon extraClass="iconText orange-text" tooltip="# players">group</MatIcon> 
             {` ${gameState.min_players}-${gameState.max_players} players`}</Col>
           </Row>
           :""}
 
           {gameState.min_playtime&&gameState.max_playtime?
           <Row>
-            <Col><MatIcon extraClass="iconText orange-text">timer</MatIcon>
+            <Col><MatIcon extraClass="iconText orange-text" tooltip="play time">timer</MatIcon>
             {` ${gameState.min_playtime}-${gameState.max_playtime} minutes`}</Col>
           </Row>
           :""}
 
           {gameState.min_age?
           <Row>
-            <Col><MatIcon extraClass="iconText orange-text">child_care</MatIcon>
+            <Col><MatIcon extraClass="iconText orange-text" tooltip="minimum age">child_care</MatIcon>
             {` ${gameState.min_age}+ years`}</Col>
           </Row>
           :""}
         </Col>
 
         <Col size="m4 s6">
-          {gameState.designers?
+          {gameState.designers.length>0?
           <Row>
-            <Col><MatIcon extraClass="iconText orange-text">face</MatIcon>
+            <Col><MatIcon extraClass="iconText orange-text" tooltip="designer">face</MatIcon>
             {` ${gameState.designers}`}</Col>
           </Row>
           :""}
 
           {gameState.year_published?
           <Row>
-            <Col><MatIcon extraClass="iconText orange-text">date_range</MatIcon>
+            <Col><MatIcon extraClass="iconText orange-text" tooltip="year published">date_range</MatIcon>
             {` ${gameState.year_published}`}</Col>
           </Row>
           :""}
 
           {gameState.primary_publisher?
           <Row>
-            <Col><MatIcon extraClass="iconText orange-text">business</MatIcon>
+            <Col><MatIcon extraClass="iconText orange-text" tooltip="publisher">business</MatIcon>
             {` ${gameState.primary_publisher}`}</Col>
           </Row>
           :""}

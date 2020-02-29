@@ -10,11 +10,11 @@ function Complexity() {
       </Row>
 
       <Row>
-        <ComplexityButton icon="looks_one">Very Easy</ComplexityButton>
-        <ComplexityButton icon="looks_two">Easy</ComplexityButton>
-        <ComplexityButton icon="looks_3">Moderate</ComplexityButton>
-        <ComplexityButton icon="looks_4">Hard</ComplexityButton>
-        <ComplexityButton icon="looks_5">Very Hard</ComplexityButton>
+        <ComplexityButton icon="looks_one" tooltip="<30 minutes">Very Easy</ComplexityButton>
+        <ComplexityButton icon="looks_two" tooltip="30-60 minutes">Easy</ComplexityButton>
+        <ComplexityButton icon="looks_3"   tooltip="60-90 minutes">Moderate</ComplexityButton>
+        <ComplexityButton icon="looks_4"   tooltip="90-120 minutes">Hard</ComplexityButton>
+        <ComplexityButton icon="looks_5"   tooltip=">120 minutes">Very Hard</ComplexityButton>
       </Row>
     </Container>
   );
