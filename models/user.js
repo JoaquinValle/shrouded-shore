@@ -1,7 +1,8 @@
 // Dependencies
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const { hash } = require('../utils/auth');
+const { hashSync } = require('bcrypt');
+// const { hash } = require('../utils/auth');
 
 // Schema declaration
 const userSchema = new Schema({
@@ -20,7 +21,7 @@ const userSchema = new Schema({
   password: { 
     type: String, 
     required: true,
-    set: val => hash(val)
+    set: val => hashSync(val, 10)
   },
 
   //Link to profile picture
