@@ -14,6 +14,6 @@ export function Row({children }) {
 }
 
 // This Col component lets us size materialize columns with less syntax
-export function Col({ size, children }) {
-  return <div className={"col "+size}>{children}</div>;
+export function Col({ size, children, center }) {
+  return <div className={`col ${size} ${center?"center":"left"}`}>{children}</div>;
 }
