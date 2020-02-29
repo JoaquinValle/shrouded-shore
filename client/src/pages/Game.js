@@ -4,6 +4,7 @@ import { Col, Row, Container } from "../components/Grid";
 import CategoryLink from "../components/CategoryLink";
 import Loader from "../components/Loader"
 import MatIcon from "../components/MatIcon"
+import LikesButton from "../components/LikesButton"
 import API from "../utils/API";
 
 function Game() {
@@ -11,6 +12,8 @@ function Game() {
   const [gameState, setGameState] = useState();
   const [loadState, setLoadState] = useState(0);
   const [categoriesState, setCategoriesState] = useState([]);
+  const [likesState, setLikesState] = useState(0);
+  const [likedState, setLikedState] = useState(false);
 
   useEffect(() => {
     API.getId(id)
@@ -46,25 +49,66 @@ function Game() {
     <Container>
       {loadState===1?<>
       <Row>
-        <h1 className="header center teal-text text-lighten-1">{gameState.name}<a className="orange-text" href="#add-game"><MatIcon>add_to_photos</MatIcon></a></h1>
+        <h1 className="header center teal-text text-lighten-1">{gameState.name}
+        <LikesButton link={gameState.id} likes={likesState} onClick={()=>{
+          setLikesState(likesState+1)
+          setLikedState(!likedState)
+          }} liked={likedState}/></h1>
       </Row>
 
       <Row>
 
-        <Col size="xl2 s4">
+        <Col size="m4 s12" center>
           <img src={gameState.images.small} alt="" className="gameImage"/>
         </Col>
 
-        <Col size="xl2 s8">
+        <Col size="m4 s6">            
+          {gameState.min_players&&gameState.max_players?
           <Row>
-            <MatIcon extraClass="iconText orange-text">group</MatIcon> {`${gameState.min_players} - ${gameState.max_players} players`}
+            <Col><MatIcon extraClass="iconText orange-text">group</MatIcon> 
+            {` ${gameState.min_players}-${gameState.max_players} players`}</Col>
           </Row>
+          :""}
+
+          {gameState.min_playtime&&gameState.max_playtime?
           <Row>
-            <MatIcon extraClass="iconText orange-text">timer</MatIcon> {`${gameState.min_playtime} - ${gameState.max_playtime} minutes`}
+            <Col><MatIcon extraClass="iconText orange-text">timer</MatIcon>
+            {` ${gameState.min_playtime}-${gameState.max_playtime} minutes`}</Col>
           </Row>
+          :""}
+
+          {gameState.min_age?
+          <Row>
+            <Col><MatIcon extraClass="iconText orange-text">child_care</MatIcon>
+            {` ${gameState.min_age}+ years`}</Col>
+          </Row>
+          :""}
         </Col>
 
-        <Col size="xl8 s12">
+        <Col size="m4 s6">
+          {gameState.designers?
+          <Row>
+            <Col><MatIcon extraClass="iconText orange-text">face</MatIcon>
+            {` ${gameState.designers}`}</Col>
+          </Row>
+          :""}
+
+          {gameState.year_published?
+          <Row>
+            <Col><MatIcon extraClass="iconText orange-text">date_range</MatIcon>
+            {` ${gameState.year_published}`}</Col>
+          </Row>
+          :""}
+
+          {gameState.primary_publisher?
+          <Row>
+            <Col><MatIcon extraClass="iconText orange-text">business</MatIcon>
+            {` ${gameState.primary_publisher}`}</Col>
+          </Row>
+          :""}
+        </Col>
+
+        <Col size="s12">
           <div dangerouslySetInnerHTML={{__html:gameState.description}}>
             
           </div>

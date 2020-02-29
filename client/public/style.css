@@ -40,13 +40,23 @@
     overflow-wrap: break-word;
   }
 
-  h1,h2,h3,h4{
+  h1,h2,h3{
     font-family: Alanus;
+    letter-spacing: 2px;
+  }
+
+  h4{
+    font-family: Alanus;
+    font-weight: lighter;
   }
 
   .iconText{
     position: relative;
     top:5px;
+  }
+
+  .gameImage{
+    margin-bottom: 20px;
   }
 
   @font-face {
