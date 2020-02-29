@@ -46,7 +46,7 @@ function Game() {
     <Container>
       {loadState===1?<>
       <Row>
-        <h1 className="header center teal-text text-lighten-1">{gameState.name}</h1>
+        <h1 className="header center teal-text text-lighten-1">{gameState.name}<a className="orange-text" href="#add-game"><MatIcon>add_to_photos</MatIcon></a></h1>
       </Row>
 
       <Row>

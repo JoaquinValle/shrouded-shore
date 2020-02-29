@@ -20,7 +20,7 @@ function Nav() {
 
   const onSubmit = (event) => {
     event.preventDefault()
-    console.log(searchState);
+    // console.log(searchState);
     if(searchState){
       history.push('/search/'+searchState);
       // var instance = M.Sidenav.getInstance(document.querySelectorAll('#ham-nav'),{edge:'right',closeOnClick: true});

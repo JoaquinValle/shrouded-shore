@@ -8,7 +8,7 @@
          url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff) format("woff"),
          url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.ttf) format("truetype");
   }
-  
+
   .material-icons {
     font-family: "Material Icons";
     font-weight: normal;
@@ -35,7 +35,21 @@
     font-feature-settings: "liga";
   }
 
+  *{
+    word-wrap: break-word ;
+    overflow-wrap: break-word;
+  }
+
+  h1,h2,h3,h4{
+    font-family: Alanus;
+  }
+
   .iconText{
     position: relative;
     top:5px;
   }
+
+  @font-face {
+    font-family: Alanus;
+    src: url(./alanus.ttf);
+}
