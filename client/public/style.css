@@ -8,7 +8,7 @@
          url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff) format("woff"),
          url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.ttf) format("truetype");
   }
-  
+
   .material-icons {
     font-family: "Material Icons";
     font-weight: normal;
@@ -35,7 +35,31 @@
     font-feature-settings: "liga";
   }
 
+  *{
+    word-wrap: break-word ;
+    overflow-wrap: break-word;
+  }
+
+  h1,h2,h3{
+    font-family: Alanus;
+    letter-spacing: 2px;
+  }
+
+  h4{
+    font-family: Alanus;
+    font-weight: lighter;
+  }
+
   .iconText{
     position: relative;
     top:5px;
   }
+
+  .gameImage{
+    margin-bottom: 20px;
+  }
+
+  @font-face {
+    font-family: Alanus;
+    src: url(./alanus.ttf);
+}

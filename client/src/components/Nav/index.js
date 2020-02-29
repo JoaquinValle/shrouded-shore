@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import M from 'materialize-css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import MatIcon from "../MatIcon"
 
 function Nav() {
   const location = useLocation();
+  const history = useHistory();
   const [locationState, setLocationState] = useState("/");
-  const [searchState, setSearchState] = useState();
+  const [searchState, setSearchState] = useState("");
 
   useEffect(() => {
     setLocationState(location.pathname);
@@ -17,9 +18,15 @@ function Nav() {
     M.Sidenav.init(document.querySelectorAll('#ham-nav'),{edge:'right',closeOnClick: true});
   }, []);
 
-  const test = (event) => {
+  const onSubmit = (event) => {
     event.preventDefault()
-    console.log(searchState)
+    // console.log(searchState);
+    if(searchState){
+      history.push('/search/'+searchState);
+      // var instance = M.Sidenav.getInstance(document.querySelectorAll('#ham-nav'),{edge:'right',closeOnClick: true});
+      // instance.close();
+      setSearchState("");
+    }
   }
 
   return (
@@ -29,15 +36,14 @@ function Nav() {
         <div className="nav-wrapper">
           <a href="/" className="brand-logo left"><img src={require("./ntsg_square.png")} alt="ntsg square" className="logoSq"/></a>
           <a href="/" className="brand-logo left"><img src={require("./ntsg_horizontal.png")} alt="ntsg logo" className="logoLn"/></a>
-          <a href="#" data-target="ham-nav" className="sidenav-trigger right"><MatIcon>menu</MatIcon></a>
+          <a href="#menu" data-target="ham-nav" className="sidenav-trigger right"><MatIcon>menu</MatIcon></a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
-              <form onSubmit={test}>
+              <form onSubmit={onSubmit}>
                 <div className="input-field">
-                  <input id="search" onChange={(e) => setSearchState(e.target.value)} value={searchState} type="search" required />
+                  <input id="search" type="search" onChange={(e) => setSearchState(e.target.value)} value={searchState} required />
                   <label className="label-icon" htmlFor="search"><MatIcon>search</MatIcon></label>
                   <MatIcon>close</MatIcon>
-
                 </div>
               </form>
             </li>
@@ -51,10 +57,10 @@ function Nav() {
     </div>
     <ul className="sidenav right" id="ham-nav">
       <li>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="input-field sidenavSearch">
-            <input id="search" type="search" required />
-            <label className="label-icon" htmlFor="search"><MatIcon>search</MatIcon></label>
+            <input id="searchM" type="search" onChange={(e) => setSearchState(e.target.value)} value={searchState} required />
+            <label className="label-icon" htmlFor="searchM"><MatIcon>search</MatIcon></label>
           </div>
         </form>
       </li>

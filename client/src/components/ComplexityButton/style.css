@@ -1,0 +1,9 @@
+.complexityBtn{
+    margin: 10px;
+    width: 200px;
+    font-weight: 600;
+}
+
+.complexityBtn:hover{
+    background-color: #f57c00 !important;
+}

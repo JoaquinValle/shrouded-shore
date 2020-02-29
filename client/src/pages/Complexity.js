@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-// import React, { useState, useEffect } from "react";
-import { Col, Row, Container } from "../components/Grid";
-import API from "../utils/API";
+import React from "react";
+import { Row, Container } from "../components/Grid";
+import ComplexityButton from "../components/ComplexityButton"
 
 function Complexity() {
   // const [complexityState, setComplexityState] = useState([])
@@ -23,9 +22,11 @@ function Complexity() {
       </Row>
 
       <Row>
-        <Col size="s12">
-        
-        </Col>
+        <ComplexityButton icon="looks_one" tooltip="<30 minutes">Very Easy</ComplexityButton>
+        <ComplexityButton icon="looks_two" tooltip="30-60 minutes">Easy</ComplexityButton>
+        <ComplexityButton icon="looks_3"   tooltip="60-90 minutes">Moderate</ComplexityButton>
+        <ComplexityButton icon="looks_4"   tooltip="90-120 minutes">Hard</ComplexityButton>
+        <ComplexityButton icon="looks_5"   tooltip=">120 minutes">Very Hard</ComplexityButton>
       </Row>
     </Container>
   );

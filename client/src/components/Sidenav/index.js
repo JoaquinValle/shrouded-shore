@@ -3,9 +3,10 @@ import useWindowDimensions from "../../utils/useWindowDimensions"
 import "./style.css";
 import M from 'materialize-css';
 import MatIcon from "../MatIcon"
+import API from "../../utils/API"
 
 function Nav(props) {
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const [userState, setUserState] = useState(1);
   const [animState, setAnimState] = useState("");
 
@@ -15,7 +16,7 @@ function Nav(props) {
 
   return (
     <aside>
-      <a href="#" data-target="sideNav" className="btn sidenav-trigger sidenavShow orange"><MatIcon extraClass="white-text">account_circle</MatIcon></a>
+      <a href="#sidenav" data-target="sideNav" className="btn sidenav-trigger sidenavShow orange"><MatIcon extraClass="white-text">account_circle</MatIcon></a>
       <ul id="sideNav" className={"sidenav sidenav-fixed sidenavWrapper "+animState}>
 
           {userState===0?(<>
@@ -38,7 +39,6 @@ function Nav(props) {
               setUserState(2)
             }}>
               <MatIcon extraClass="logInIcon">account_circle</MatIcon>
-              {/* <img src={require("./ntsg_square.png")} alt="logo" width="64px"/> */}
               <span className="white-text name logInText">Log In</span>
             </a>
           </div></li>
@@ -50,27 +50,27 @@ function Nav(props) {
                 setUserState(1)
               }}>close</i>
             <MatIcon extraClass="logInIcon">account_circle</MatIcon>
-            {/* <img src={require("./ntsg_square.png")} alt="logo" width="64px"/> */}
-            <span className="white-text name logInText">Log In</span>
+            <span onClick={() => {}} className="white-text name logInText">Log In</span>
           </div></li>
           <form className="formWrapper">
             <div className="row">
               <div className="input-field col s12">
                 <input id="email" type="email" className="validate"/>
-                <label forHtml="email">Email</label>
+                <label forhtml="email">Email</label>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s12">
                 <input id="password" type="password" className="validate"/>
-                <label forHtml="password">Password</label>
-                <a className="helper-text">Forgot password?</a>
+                <label forhtml="password">Password</label>
+                <a href="/recover-password" className="helper-text">Forgot password?</a>
               </div>
             </div>
             <div className="row">
               <button className="btn waves-effect waves-light logBtn teal" type="submit" name="action" onClick={()=>{
                 setAnimState("animatedSlideOut")
                 setUserState(0)
+                API.logIn()
               }}>Log In</button><br/>
               <button className="btn waves-effect waves-light logBtn teal">Sign Up</button>
             </div>
@@ -83,3 +83,8 @@ function Nav(props) {
 } 
 
 export default Nav;
+
+
+// api/user/login
+//valido  objeto token
+//invalido expiro

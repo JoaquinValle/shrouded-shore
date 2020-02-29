@@ -1,6 +1,8 @@
 // Dependencies
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const { hashSync } = require('bcrypt');
+// const { hash } = require('../utils/auth');
 
 // Schema declaration
 const userSchema = new Schema({
@@ -16,14 +18,19 @@ const userSchema = new Schema({
     index: true,
     unique: true
   },
+  password: { 
+    type: String, 
+    required: true,
+    set: val => hashSync(val, 10)
+  },
+
   //Link to profile picture
   profilePicture: {
     type: String
   },
-  //Saved collections of games (DB ids)
-  collecitions: [{
-    type: Schema.Types.ObjectId,
-    ref: "collection"
+  //Array of liked games (API ids)
+  likedGames: [{
+    type: String
   }]
 });
 
