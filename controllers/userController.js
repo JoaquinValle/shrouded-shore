@@ -1,7 +1,7 @@
 const db = require("../models");
-const utils = require('../utils/auth')
-const jwt = require('jsonwebtoken');
+// const { hashSync } = require('bcrypt');
 
+// const utils = require('../utils/auth')
 // Defining methods for the userController
 module.exports = {
   findOne: function(req, res) {
@@ -20,15 +20,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(user) {
-    const { name, mail, password} = user;
-    const payload = {
-      name,
-      mail,
-      password: utils.hash(password) || '1234'
-    }
-    // debugger;
-    console.log(payload);
-    db.User.create(payload)
+    // const { name, mail, password} = user;
+    // const payload = {
+    //   name,
+    //   mail,
+      // password: hashSync(password, 10)
+    // }
+    console.log(user);
+    db.User.create(user)
       .then(res => {console.log(res)})
       .catch((err) => {console.error(err)});
   },
