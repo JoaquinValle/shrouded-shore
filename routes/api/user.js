@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
-const { compare } = require('../../utils/auth');
-
+const { compareSync } = require ('bcrypt');
 
 // Matches with "/api/user"
 router.route("/")
@@ -44,11 +43,17 @@ router
     const { mail, password } = req.body;
     try{
     let user = await userController.findByUsername({mail});
-      // if(compare(password)) {
-      // res.send({message: 'holi'})  // cambiar por jwt
-      if(user){
+    // res.send({message: 'holi'})  // cambiar por jwt
+    console.log(`user:`);
+    console.log(user);
+    if(user){
+      if(compareSync(password, user.password)) {
         res.json({ token: userController.toAuthJSON(user).token});
-      } else res.json({message: 'User not found'});
+      }else{
+        res.json({ message: "Password is incorrect" });
+      }
+    } else 
+      res.json({message: 'User not found'});
     } catch(err){
       console.log(err)
     }
