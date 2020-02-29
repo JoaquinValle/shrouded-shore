@@ -23,7 +23,7 @@ function Home() {
       <Row>
         <h1 className="header center teal-text text-lighten-1">New Games</h1>
       </Row>
-
+      
       <Row>
         <Col size="s12">
           <Collection>

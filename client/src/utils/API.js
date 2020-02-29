@@ -1,5 +1,6 @@
 import axios from "axios";
-const BGA = process.env.REACT_APP_BGA;
+//const BGA = process.env.REACT_APP_BGA;
+const BGA = "mslELa9SkR"
 const limit = 20;
 
 export default {
@@ -37,7 +38,7 @@ export default {
 
   // Search BGA API for all categories
   getCategories: function() {
-    return axios.get(`https://www.boardgameatlas.com/api/categories?&pretty=true&client_id=${BGA}`)
+    return axios.get(`https://www.boardgameatlas.com/api/game/categories?pretty=true&client_id=${BGA}`)
   },
 
   // Search BGA API for all categories
