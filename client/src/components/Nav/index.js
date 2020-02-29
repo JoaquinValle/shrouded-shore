@@ -1,8 +1,13 @@
+// Dependencies
 import React, { useState, useEffect } from "react";
-import "./style.css";
 import M from 'materialize-css';
 import { useLocation, useHistory } from 'react-router-dom';
+
+// Other Components
 import MatIcon from "../MatIcon"
+
+// Style Import
+import "./style.css";
 
 function Nav() {
   const location = useLocation();

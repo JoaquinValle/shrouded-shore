@@ -1,4 +1,4 @@
-// Taken from https://codesandbox.io/s/34kr2rw285
+// Dependencies
 import{ useEffect, useState } from "react";
 
 function getWindowDimensions() {
@@ -9,6 +9,7 @@ function getWindowDimensions() {
   };
 }
 
+// Custom React Hook for getting window width and height
 export default function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
@@ -25,3 +26,4 @@ export default function useWindowDimensions() {
 
   return windowDimensions;
 }
+// Taken from https://codesandbox.io/s/34kr2rw285
