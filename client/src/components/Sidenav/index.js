@@ -9,6 +9,17 @@ function Nav(props) {
   const { width } = useWindowDimensions();
   const [userState, setUserState] = useState(1);
   const [animState, setAnimState] = useState("");
+  const [emailState, setEmailState] = useState("")
+  const [passState, setPassState] = useState("")
+
+  const getInfo = (event) => {
+    event.preventDefault()
+    if (emailState !== "" || passState !== "") {
+      console.log(emailState)
+      console.log(passState)
+    }
+  }
+
 
   useEffect(() => {
     M.Sidenav.init(document.querySelectorAll('#sideNav'),{menuWidth:170});
@@ -52,27 +63,28 @@ function Nav(props) {
             <MatIcon extraClass="logInIcon">account_circle</MatIcon>
             <span onClick={() => {}} className="white-text name logInText">Log In</span>
           </div></li>
-          <form className="formWrapper">
+          <form className="formWrapper" onSubmit={getInfo}>
             <div className="row">
               <div className="input-field col s12">
-                <input id="email" type="email" className="validate"/>
+                <input id="email" type="email" className="validate" onChange={(e) => setEmailState(e.target.value)} value={emailState}/>
                 <label forhtml="email">Email</label>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <input id="password" type="password" className="validate"/>
+                <input id="password" type="password" className="validate" onChange={(e) => setPassState(e.target.value)} value={passState}/>
                 <label forhtml="password">Password</label>
                 <a href="/recover-password" className="helper-text">Forgot password?</a>
               </div>
             </div>
             <div className="row">
-              <button className="btn waves-effect waves-light logBtn teal" type="submit" name="action" onClick={()=>{
+              <button type="button" className="btn waves-effect waves-light logBtn teal" name="action" onClick={()=>{
+                console.log(emailState, passState)
+                //API.logIn(emailState, passState)
                 setAnimState("animatedSlideOut")
                 setUserState(0)
-                API.logIn()
               }}>Log In</button><br/>
-              <button className="btn waves-effect waves-light logBtn teal">Sign Up</button>
+              <button type="submit" className="btn waves-effect waves-light logBtn teal">Sign Up</button>
             </div>
           </form>
           </>)}
