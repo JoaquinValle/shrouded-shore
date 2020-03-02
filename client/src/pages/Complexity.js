@@ -1,4 +1,7 @@
+// Dependencies
 import React from "react";
+
+// React Components
 import { Row, Container } from "../components/Grid";
 import ComplexityButton from "../components/ComplexityButton"
 

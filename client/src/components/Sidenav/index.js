@@ -1,10 +1,18 @@
+// Dependencies
 import React, { useState, useEffect } from "react";
-import useWindowDimensions from "../../utils/useWindowDimensions"
-import "./style.css";
 import M from 'materialize-css';
+
+// Other Components
 import MatIcon from "../MatIcon"
 import API from "../../utils/API"
 
+// React Utilities and Hooks
+import useWindowDimensions from "../../utils/useWindowDimensions"
+
+// Style Import
+import "./style.css";
+
+// Nav components displays navbar and handles searching
 function Nav(props) {
   const { width } = useWindowDimensions();
   const [userState, setUserState] = useState(1);

@@ -1,10 +1,15 @@
+// Dependencies
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+// React Components
 import { Col, Row, Container } from "../components/Grid";
 import CategoryLink from "../components/CategoryLink";
 import Loader from "../components/Loader"
 import MatIcon from "../components/MatIcon"
 import LikesButton from "../components/LikesButton"
+
+// React Utilities and Hooks
 import API from "../utils/API";
 
 function Game() {

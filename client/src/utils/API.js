@@ -1,6 +1,10 @@
+// Dependencies
 import axios from "axios";
-//const BGA = process.env.React_App_BGA;
-const BGA = "mslELa9SkR"
+
+// Enviroment BGA client id
+const BGA = process.env.REACT_APP_BGA;
+
+// Limit of games queried
 const limit = 20;
 
 export default {

@@ -1,7 +1,12 @@
+// Dependencies
 import React, { useState, useEffect } from "react";
+
+// React Components
 import { Row, Container } from "../components/Grid";
 import CategoryLink from "../components/CategoryLink";
 import Loader from "../components/Loader"
+
+// React Utilities and Hooks
 import API from "../utils/API"
 import Pagination from "../components/Pagination";
 

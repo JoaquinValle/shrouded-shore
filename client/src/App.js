@@ -1,5 +1,8 @@
+// Dependencies
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// React Component/Pages
 import Home from "./pages/Home";
 import Top from "./pages/Top";
 import Categories from "./pages/Categories";
@@ -9,13 +12,10 @@ import ByComplexity from "./pages/ByComplexity";
 import Game from "./pages/Game";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
+
+// React Components
 import Nav from "./components/Nav";
 import Sidenav from "./components/Sidenav";
-import User from "./components/UserData";
-import UserProfile from "./pages/UserProfile"
-import SavedGames from "./pages/SavedGames"
-import Friends from "./pages/Friends"
-import Background from "./components/Background";
 
 function App() {
   return (
