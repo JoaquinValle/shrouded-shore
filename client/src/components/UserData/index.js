@@ -2,7 +2,30 @@ import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../../components/Grid/index";
 import "./style.css"
 
-function User() {
+function getTitle(numberGames) {
+    let parsedGames = parseInt(numberGames)
+    if (parsedGames <= 5) {
+        return "New Player"
+    }
+    else if (parsedGames <= 10 && numberGames > 5) {
+        return  "Board Game Afficionado"
+    }
+    else if (parsedGames <= 20 && numberGames > 10) {
+        return  "Experienced Player"
+    }
+    else if (parsedGames <= 40 && numberGames > 20) {
+        return  "Board Game Guru"
+    }
+    else if (parsedGames <= 80 && numberGames > 40) {
+        return  "Master of The Board and Games"
+    }
+    else if (parsedGames > 80) {
+        return  "Board Game Diety"
+    }
+  }
+  
+
+function User(props) {
     return (
         <Container>
             <Row>
@@ -13,21 +36,19 @@ function User() {
                 <Col size="s12">
                     <Row>
                         <Col size="s4">
-                        <a href="#profile"><img src="https://randomuser.me/api/portraits/men/72.jpg" width="250px" alt="profile"/></a>
+                        <a href="#profile"><img src={props.img} width="250px" alt="profile"/></a>
                         </Col>
                         <Col size="s8">
                             <Row>
                                 <Col size="s12" >
-                                 <h5 className="user-name">John Doe</h5>
-                                 <p className="user-personal-title">Board Game Guru</p>
+                                 <h5 className="user-name">{props.name}</h5>
+                                 <p className="user-personal-title">{getTitle(props.saved)}</p>
                                 </Col>
                             </Row>
 
                             <Row>
                                 <Col size="s12">
-                                    <p>Number of Games Saved: 4</p>
-                                    <p>Number of Friends: 62</p>
-                                    <p>Add Friend</p>
+                                    <p>Number of Games Saved: {props.saved}</p>
                                     <p>Edit Profile</p>
                                 </Col>
                             </Row>
@@ -43,9 +64,9 @@ function User() {
                         </Row>
                         <Row>
                             <Col size="s12">
-                                <p>Phone Number: +555456456</p>
-                                <p>Country: Mexico</p>
-                                <p>Email: wadgwea@gmail.com</p>
+                                <p>Phone Number: {props.phone}</p>
+                                <p>Country: {props.country}</p>
+                                <p>Email: {props.email}</p>
                             </Col>
                         </Row>
                     </Col>

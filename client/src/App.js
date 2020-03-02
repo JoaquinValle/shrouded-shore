@@ -12,6 +12,8 @@ import ByComplexity from "./pages/ByComplexity";
 import Game from "./pages/Game";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
+import SavedGames from "./pages/SavedGames"
+import User from "./components/UserData"
 
 // React Components
 import Nav from "./components/Nav";
@@ -33,7 +35,13 @@ function App() {
           <Route exact path="/search/:search" component={Search} />
           <Route exact path="/" component={Home} />
           <Route exact path="/games" component={SavedGames} />
-          <Route exact path="/profile" component={User} />
+          <Route exact path="/profile" render={(props) => <User {...props} 
+            img={"https://randomuser.me/api/portraits/men/72.jpg"} 
+            name="John Doe" 
+            saved="42" 
+            phone="+555417187" 
+            country="Mexico" 
+            email="awdefe@gmail.com"/>}/>
           <Route component={NoMatch} />
         </Switch>
       </div>

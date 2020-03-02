@@ -2,8 +2,8 @@
 import axios from "axios";
 
 // Enviroment BGA client id
-const BGA = process.env.REACT_APP_BGA;
-
+//const BGA = process.env.REACT_APP_BGA;
+const BGA = "mslELa9SkR"
 // Limit of games queried
 const limit = 20;
 
