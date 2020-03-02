@@ -22,7 +22,7 @@ function App() {
     <Router>
       <div>
         <Nav/>
-        <Sidenav/>
+        <Sidenav img="https://randomuser.me/api/portraits/men/72.jpg" name="John Doe"/>
         <Switch>
           <Route exact path="/top" component={Top} />
           <Route exact path="/categories" component={Categories} />
@@ -34,8 +34,6 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/games" component={SavedGames} />
           <Route exact path="/profile" component={User} />
-          <Route exact path="/friends" component={Friends} />
-
           <Route component={NoMatch} />
         </Switch>
       </div>

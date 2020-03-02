@@ -97,6 +97,5 @@ function Nav(props) {
 export default Nav;
 
 
-// api/user/login
 //valido  objeto token
 //invalido expiro
