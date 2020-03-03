@@ -19,6 +19,9 @@ import User from "./components/UserData"
 import Nav from "./components/Nav";
 import Sidenav from "./components/Sidenav";
 
+// API
+import API from "./utils/API.js"
+
 function App() {
   return (
     <Router>
@@ -34,7 +37,6 @@ function App() {
           <Route exact path="/games/:id" component={Game} />
           <Route exact path="/search/:search" component={Search} />
           <Route exact path="/" component={Home} />
-          <Route exact path="/games" component={SavedGames} />
           <Route exact path="/games" render={(props) => <SavedGames {...props}
             mail="awdefe@gmail.com"
           />}/>

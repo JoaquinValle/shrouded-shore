@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { useLocation } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Collection, CollectionItem } from "../components/Collection";
@@ -15,9 +15,9 @@ function SavedGames(props) {
 
   //db query
   useEffect(()=>{
-    API.getNew()
+    API.getSaved()
     .then(res=>{
-      setGamesState(res.data.games);
+      setGamesState(res.data.likedGames);
       setLoadState(1);
     }).catch(err=>{
       console.log(err)

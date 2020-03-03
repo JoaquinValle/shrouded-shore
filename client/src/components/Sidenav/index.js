@@ -91,7 +91,8 @@ function Nav(props) {
                   <div className="col s12">
                     <button type="button" className="btn waves-effect waves-light logBtn" name="action" onClick={()=>{
                       console.log(emailState, passState)
-                      //API.logIn(emailState, passState)
+                      API.logIn(emailState, passState)
+                      
                       setAnimState("animatedSlideOut")
                       setUserState(0)
                     }}>Log In</button><br/>
