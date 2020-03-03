@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../../components/Grid/index";
-import "./style.css"
+import Edit from "../Edit"
+import "./assets/style.css"
+import "./assets/images/reload.svg"
 
 function getTitle(numberGames) {
     let parsedGames = parseInt(numberGames)
@@ -29,34 +31,39 @@ function User(props) {
     return (
         <Container>
             <Row>
-                <h1 className="header center teal-text text-lighten-1">User Profile</h1>
+                <Col size="s11">
+                    <h1 className="header center teal-text text-lighten-1">User Profile</h1>
+                </Col>
+                <Col size="s1">
+                    <Edit></Edit>
+                </Col>
             </Row>
 
             <Row>
                 <Col size="s12">
                     <Row>
-                        <Col size="s6">
-                        <a href="#profile"><img src={props.img} width="250px" alt="profile"/></a>
+                        <Col size="s5">
+                        <a classname="profile-picture" href="#profile"><img src={props.img}  width="250px" alt="profile"/></a>
                         </Col>
-                        <Col size="s6">
+                        <Col size="s7">
                             <Row>
-                                <Col size="s5">
+                                <Col size="s7">
                                  <h5 className="user-name">{props.name}</h5>
                                  <p className="user-personal-title">{getTitle(props.saved)}</p>
                                 </Col>  
-                                <Col size="s7">
-                                    
+                                <Col size="s5">
                                     <i className="fas fa-search-location"></i>
                                     <span className="location">
-                                        {props.country}
+                                        {props.location}
                                     </span>
-                                </Col>                            
+                                </Col>                          
                             </Row>
 
                             <Row>
                                 <Col size="s12">
-                                    <p>Number of Games Saved: {props.saved}</p>
-                                    <p>Edit Profile</p>
+                                    <p className="user-info-extra"><span className="text-weight">Number of Games Saved:</span> {props.saved}</p>
+                                    <p className="user-info-extra"><span className="text-weight">Favorite Game:</span> {props.favorite}</p>
+
                                 </Col>
                             </Row>
 
@@ -66,29 +73,33 @@ function User(props) {
                     <Col size="s6">
                         <Row>
                             <Col size="s12">
-                                <h6 className="user-title">Contact Information</h6>
+                                <h6 className="user-title user-l">Contact Information</h6>
                             </Col>
                         </Row>
                         <Row>
                             <Col size="s12">
-                                <p>Phone Number: {props.phone}</p>
-                                <p>Country: {props.country}</p>
-                                <p>Email: {props.email}</p>
+                                <span className="user-info">
+                                    <p><div className="text-weight">Phone Number:</div> {props.phone}</p>
+                                    <p><div className="text-weight">Email:</div> {props.email}</p>
+                                    <p><div className="text-weight">Game Status:</div> {props.status}</p>
+                                </span>
                             </Col>
                         </Row>
                     </Col>
 
-                    <Col size="s6">
+                    <Col size="s6" className="info">
                         <Row>
                             <Col size="s12">
-                            <h6 className="user-title">Basic Information</h6>
+                            <h6 className="user-title user-r">Personal Information</h6>
                             </Col>
                         </Row>
                         <Row>
                             <Col size="s12">
-                                <p>Gender: Male</p>
-                                <p>Age: 45</p>
-                                <p>Birthday: August 18th, 1996</p>
+                                <span className="user-info">
+                                    <p><div className="text-weight">Age:</div> {props.age}</p>
+                                    <p><div className="text-weight">Gender:</div> {props.gender}</p>
+                                    <p><div className="text-weight">Location:</div> {props.location}</p>
+                                </span>
                             </Col>
                         </Row>
                     </Col>
