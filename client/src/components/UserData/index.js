@@ -52,7 +52,7 @@ function User(props) {
                                  <p className="user-personal-title">{getTitle(props.saved)}</p>
                                 </Col>  
                                 <Col size="s5">
-                                    <i className="fas fa-search-location" SameSite="none"></i>
+                                    <i className="fas fa-search-location" samesite="none"></i>
                                     <span className="location">
                                         {props.location}
                                     </span>

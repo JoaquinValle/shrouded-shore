@@ -66,6 +66,8 @@ class EditModal extends Component {
                 <input type="text" name ="gender" placeholder="male"/>
                 <label for="age">Age</label><br/>
                 <input type="text" name ="birthday" placeholder="29"/>
+                <label for="favorite">Favorite Game</label><br/>
+                <input type="text" name ="favorite" placeholder="Catan"/>
 
                 <span>
                     <button type="submit" className="modal-close waves-effect waves-teal btn btn-fix">Submit</button>

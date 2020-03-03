@@ -82,6 +82,17 @@ export default {
     })
   },
 
+  signup: function(mail, password) {
+    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/signup`, {
+      mail: mail,
+      password: password
+    })
+    .then((res) => {
+      console.log(res)
+      return res
+    })
+  },
+
   getSaved: function(token) {
     return axios.get(`https://shrouded-shore-54599.herokuapp.com/api/user/${token}`)
   },

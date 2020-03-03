@@ -69,7 +69,10 @@ function Nav(props) {
                 setUserState(1)
               }}>close</i>
             <MatIcon extraClass="logInIcon">account_circle</MatIcon>
-            <span onClick={() => {}} className="white-text name logInText">Log In</span>
+            <span onClick={() => {
+              API.logIn(emailState, passState)
+              console.log(emailState, passState)
+            }} className="white-text name logInText">Log In</span>
           </div></li>
           <form className="formWrapper" onSubmit={getInfo}>
             <div className="row">
@@ -89,10 +92,8 @@ function Nav(props) {
               <div className="col s3">
                 <div className="row">
                   <div className="col s12">
-                    <button type="button" className="btn waves-effect waves-light logBtn" name="action" onClick={()=>{
-                      console.log(emailState, passState)
-                      API.logIn(emailState, passState)
-                      
+                    <button type="submit" className="btn waves-effect waves-light logBtn" name="action" onClick={()=>{
+                      console.log(emailState, passState)                      
                       setAnimState("animatedSlideOut")
                       setUserState(0)
                     }}>Log In</button><br/>
@@ -100,8 +101,7 @@ function Nav(props) {
                 </div>
                 <div className="row">
                   <div className="col s12">
-                    <Modal/>
-                    {/* <button type="button" className="btn waves-effect waves-light logBtn teal">Sign Up</button> */}
+                    <Modal name={props.name}/>
                   </div>
                 </div>
               </div>
