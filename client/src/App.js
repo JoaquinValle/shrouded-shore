@@ -21,7 +21,7 @@ import Nav from "./components/Nav";
 import Sidenav from "./components/Sidenav";
 
 // API
-//import API from "./utils/API.js"
+import API from "./utils/API.js"
 
 function App() {
   return (
@@ -44,7 +44,9 @@ function App() {
           />}/>
           
           <Route exact path="/profile" render={(props) => <User {...props} 
-            img={"https://randomuser.me/api/portraits/men/72.jpg"} 
+
+            let data = {API.getSaved("usertoken").then((res) => {return res.data})}  
+            img="https://randomuser.me/api/portraits/men/72.jpg"
             name="John Doe" 
             saved="42" 
             phone="+555417187" 
@@ -53,7 +55,19 @@ function App() {
             gender="Male"
             age="29"
             favorite="Catan"
-            status="Looking for people to play Catan with"/>}/>
+            status="Looking for people to play Catan with"
+            
+            // img={data.img}
+            // name={data.name}
+            // saved={data.saved}
+            // phone={data.phone}
+            // location={data.location}
+            // email={data.email}
+            // gender={data.gender}
+            // age={data.age}
+            // favorite={data.favorite}
+            // status={data.status}
+            />}/>
           <Route component={NoMatch} />
         </Switch>
       </div>

@@ -16,10 +16,10 @@ function SavedGames(props) {
   //db query
   useEffect(()=>{
     API.getSaved()
-    .then(res=>{
+    .then((res)=>{
       setGamesState(res.data.likedGames);
       setLoadState(1);
-    }).catch(err=>{
+    }).catch((err)=>{
       console.log(err)
       setLoadState(2);
     });
