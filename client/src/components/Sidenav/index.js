@@ -92,7 +92,7 @@ function Nav(props) {
               <div className="col s3">
                 <div className="row">
                   <div className="col s12">
-                    <button type="submit" className="btn waves-effect waves-light logBtn" name="action" onClick={()=>{
+                    <button type="button" className="btn waves-effect waves-light logBtn" name="action" onClick={()=>{
                       console.log(emailState, passState)                      
                       setAnimState("animatedSlideOut")
                       setUserState(0)
@@ -101,7 +101,7 @@ function Nav(props) {
                 </div>
                 <div className="row">
                   <div className="col s12">
-                    <Modal name={props.name}/>
+                    <Modal/>
                   </div>
                 </div>
               </div>
