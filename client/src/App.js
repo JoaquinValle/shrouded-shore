@@ -21,7 +21,7 @@ import Nav from "./components/Nav";
 import Sidenav from "./components/Sidenav";
 
 // API
-import API from "./utils/API.js"
+//import API from "./utils/API.js"
 
 function App() {
   return (

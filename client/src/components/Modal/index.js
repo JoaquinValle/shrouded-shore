@@ -33,12 +33,12 @@ class Modal extends Component {
   render() {
     return (
       <>
-        <a
+        <button
           className="waves-effect waves-light btn modal-trigger modal-fix"
           data-target="sign-up-modal"
         >
           Sign Up
-        </a>
+        </button>
 
         <div
           ref={Modal => {

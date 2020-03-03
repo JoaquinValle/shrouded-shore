@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Col, Row, Container } from "../../components/Grid/index";
 import Edit from "../Edit"
 import "./assets/style.css"
@@ -52,7 +52,7 @@ function User(props) {
                                  <p className="user-personal-title">{getTitle(props.saved)}</p>
                                 </Col>  
                                 <Col size="s5">
-                                    <i className="fas fa-search-location"></i>
+                                    <i className="fas fa-search-location" SameSite="none"></i>
                                     <span className="location">
                                         {props.location}
                                     </span>

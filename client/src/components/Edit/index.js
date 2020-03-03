@@ -35,10 +35,11 @@ class EditModal extends Component {
     return (
       <>
         <a
+          href="/#"
           className="modal-trigger modal-fix"
           data-target="edit-modal"
         >
-          <img src={Reload} width="48" height="48" className="topFix"/>
+          <img src={Reload} width="48" height="48" className="topFix" alt="Profile"/>
         </a>
 
         <div
