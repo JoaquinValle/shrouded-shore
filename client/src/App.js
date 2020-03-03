@@ -15,12 +15,13 @@ import NoMatch from "./pages/NoMatch";
 import SavedGames from "./pages/SavedGames"
 import User from "./components/UserData"
 
+
 // React Components
 import Nav from "./components/Nav";
 import Sidenav from "./components/Sidenav";
 
 // API
-import API from "./utils/API.js"
+//import API from "./utils/API.js"
 
 function App() {
   return (
@@ -46,8 +47,12 @@ function App() {
             name="John Doe" 
             saved="42" 
             phone="+555417187" 
-            country="Mexico" 
-            email="awdefe@gmail.com"/>}/>
+            location="Mexico City, Mexico" 
+            email="awdefe@gmail.com"
+            gender="Male"
+            age="29"
+            favorite="Catan"
+            status="Looking for people to play Catan with"/>}/>
           <Route component={NoMatch} />
         </Switch>
       </div>

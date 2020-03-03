@@ -3,9 +3,10 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 
 // Style Import
-import "./style.css";
+import "./assets/style.css";
+import Reload from "./assets/images/reload.svg"
 
-class Modal extends Component {
+class EditModal extends Component {
   componentDidMount() {
     const options = {
       onOpenStart: () => {
@@ -33,30 +34,39 @@ class Modal extends Component {
   render() {
     return (
       <>
-        <button
-          className="waves-effect waves-light btn modal-trigger modal-fix"
-          data-target="sign-up-modal"
+        <a
+          href="/#"
+          className="modal-trigger modal-fix"
+          data-target="edit-modal"
         >
-          Sign Up
-        </button>
+          <img src={Reload} width="48" height="48" className="topFix" alt="Profile"/>
+        </a>
 
         <div
           ref={Modal => {
             this.Modal = Modal;
           }}
-          id="sign-up-modal"
+          id="edit-modal"
           className="modal"
         >
           <div className="modal-content">
-            <h4>Create Account</h4>
-            <form action="/signup" method="post">
+            <h4>Edit Information</h4>
+            <form action="/edit" method="post">
+                <h6>Contact Information</h6><br/>
                 <label for="name">Name</label><br/>
                 <input type="text" name="name" placeholder="John Doe"/>
-                <label for="password">Password</label><br/>
-                <input type="password" name="password" placeholder="super52SecreT@password"/>
-                <label for="email">Email</label><br/>
-                <input type="text" name ="email" placeholder="catanrocks@gmail.com"/>
-                {/* <input type="url" name ="profilePicture" placeholder="https://www.fillmurray.com/300/300"/> */}
+                <label for="profilePicture">Profile Picture</label><br/>
+                <input type="url" name ="profilePicture" placeholder="https://www.fillmurray.com/300/300"/>
+                <label for="phoneNumber">Phone Number</label><br/>
+                <input type="text" name ="phoneNumber" placeholder="55543525"/>
+                <label for="location">Profile Picture</label><br/>
+                <input type="text" name ="location" placeholder="Mexico City, Mexico"/>
+                <h6>Personal Information</h6><br/>
+                <label for="gender">Gender</label><br/>
+                <input type="text" name ="gender" placeholder="male"/>
+                <label for="age">Age</label><br/>
+                <input type="text" name ="birthday" placeholder="29"/>
+
                 <span>
                     <button type="submit" className="modal-close waves-effect waves-teal btn btn-fix">Submit</button>
                     <button type="button" className="modal-close waves-effect waves-red red btn">Cancel</button>
@@ -68,5 +78,4 @@ class Modal extends Component {
     );
   }
 }
-
-export default Modal;
+export default EditModal;

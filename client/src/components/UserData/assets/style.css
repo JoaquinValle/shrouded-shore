@@ -1,0 +1,70 @@
+.user-name {
+    color: gray;
+    font-size: 35pt;
+    margin-bottom: 0px;
+    margin-top: 0px
+}
+
+.user-title {
+    color: teal;
+    size: 19pt;
+    border: 2px teal solid;
+    border-radius: 25px;
+    padding: 3px;
+    text-align: center;
+    letter-spacing: 7px
+}
+
+.user-info {
+    color: teal;
+    size: 19pt;
+    text-align: center;
+    letter-spacing: 7px
+}
+
+.user-info-extra {
+    color: teal;
+    size: 19pt;
+    text-align: left;
+    letter-spacing: 7px
+}
+
+.user-r {
+    margin-left: 12px
+}
+
+.user-l {
+    margin-right: 15px
+}
+
+.text-weight {
+    font-weight: bold
+} 
+
+.teal-border {
+    border: 2px teal solid;
+    border-radius: 25px;
+    padding: 3px;
+}
+
+.user-personal-title {
+    font-size: 10pt;
+    color: teal;
+    margin-top: 0px;
+    margin-bottom: 0px
+}
+
+.fa-search-location {
+    color: teal
+}
+
+.location {
+    color: teal;
+    font-size: 11px;
+    padding-left: 5px;
+    margin-top: 3px;
+}
+
+.topFix {
+    margin-top: 140%
+}
