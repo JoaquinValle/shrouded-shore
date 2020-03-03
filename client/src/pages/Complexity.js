@@ -6,17 +6,6 @@ import { Row, Container } from "../components/Grid";
 import ComplexityButton from "../components/ComplexityButton"
 
 function Complexity() {
-  // const [complexityState, setComplexityState] = useState([])
-  // const numDisplayed = 4;
-  // const paginationSize = 5;
-  // const [pageState, setPageState] = useState(1);
-
-  // useEffect(()=>{
-  //   API.getcategories()
-  //   .then(res=>{
-  //     setCategoryState(res.data.categories);
-  //   }).catch(err=>console.log(err));
-  // },[]);
 
   return (
     <Container>

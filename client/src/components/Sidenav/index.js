@@ -1,10 +1,11 @@
 // Dependencies
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import M from 'materialize-css';
 
 // Other Components
 import MatIcon from "../MatIcon"
 import API from "../../utils/API"
+import Modal from "../Modal"
 
 // React Utilities and Hooks
 import useWindowDimensions from "../../utils/useWindowDimensions"
@@ -27,6 +28,7 @@ function Nav(props) {
       console.log(passState)
     }
   }
+
 
 
   useEffect(() => {
@@ -90,10 +92,12 @@ function Nav(props) {
                 setAnimState("animatedSlideOut")
                 setUserState(0)
               }}>Log In</button><br/>
-              <button type="submit" className="btn waves-effect waves-light logBtn teal">Sign Up</button>
+              <Modal/>
+              {/* <button type="button" className="btn waves-effect waves-light logBtn teal">Sign Up</button> */}
             </div>
           </form>
           </>)}
+
 
       </ul>
     </aside>
