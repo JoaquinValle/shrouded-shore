@@ -8,6 +8,8 @@ import Loader from "../components/Loader"
 
 // React Utilities and Hooks
 import API from "../utils/API"
+import Pagination from "../components/Pagination";
+
 
 function Categories() {
   const [categoriesState,setCategoriesState]=useState([]);

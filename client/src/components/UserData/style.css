@@ -1,0 +1,29 @@
+.user-name {
+    color: gray;
+    font-size: 35pt;
+    margin-bottom: 0px;
+    margin-top: 0px
+}
+
+.user-title {
+    color: teal;
+    size: 19pt;
+}
+
+.user-personal-title {
+    font-size: 10pt;
+    color: teal;
+    margin-top: 0px;
+    margin-bottom: 0px
+}
+
+.fa-search-location {
+    color: teal
+}
+
+.location {
+    color: teal;
+    font-size: 19px;
+    padding-left: 5px;
+    margin-top: 3px;
+}

@@ -25,6 +25,7 @@ function Game() {
     .then(res=>{
       setGameState(res.data.games[0]);
       setLoadState(1);
+      API.saveGame(id)
     }).catch(err=>{
       console.log(err);
       setLoadState(2);

@@ -12,17 +12,22 @@ import ByComplexity from "./pages/ByComplexity";
 import Game from "./pages/Game";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
+import SavedGames from "./pages/SavedGames"
+import User from "./components/UserData"
 
 // React Components
 import Nav from "./components/Nav";
 import Sidenav from "./components/Sidenav";
+
+// API
+import API from "./utils/API.js"
 
 function App() {
   return (
     <Router>
       <div>
         <Nav/>
-        <Sidenav/>
+        <Sidenav img="https://randomuser.me/api/portraits/men/72.jpg" name="John Doe"/>
         <Switch>
           <Route exact path="/top" component={Top} />
           <Route exact path="/categories" component={Categories} />
@@ -32,6 +37,17 @@ function App() {
           <Route exact path="/games/:id" component={Game} />
           <Route exact path="/search/:search" component={Search} />
           <Route exact path="/" component={Home} />
+          <Route exact path="/games" render={(props) => <SavedGames {...props}
+            mail="awdefe@gmail.com"
+          />}/>
+          
+          <Route exact path="/profile" render={(props) => <User {...props} 
+            img={"https://randomuser.me/api/portraits/men/72.jpg"} 
+            name="John Doe" 
+            saved="42" 
+            phone="+555417187" 
+            country="Mexico" 
+            email="awdefe@gmail.com"/>}/>
           <Route component={NoMatch} />
         </Switch>
       </div>

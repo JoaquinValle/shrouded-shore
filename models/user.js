@@ -28,6 +28,8 @@ const userSchema = new Schema({
   profilePicture: {
     type: String
   },
+  
+
   //Array of liked games (API ids)
   likedGames: [{
     type: String

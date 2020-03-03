@@ -2,8 +2,8 @@
 import axios from "axios";
 
 // Enviroment BGA client id
-const BGA = process.env.REACT_APP_BGA;
-
+//const BGA = process.env.REACT_APP_BGA;
+const BGA = "mslELa9SkR"
 // Limit of games queried
 const limit = 20;
 
@@ -69,5 +69,24 @@ export default {
         });
         return errorPromise;
     }
-  }
+  },
+
+  logIn: function(mail, password) {
+    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/login`, {
+      mail: mail,
+      password: password
+    })
+    .then((res) => {
+      console.log(res)
+      return res
+    })
+  },
+
+  getSaved: function(token) {
+    return axios.get(`https://shrouded-shore-54599.herokuapp.com/api/user/${token}`)
+  },
+
+  saveGame: function(token) {
+    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/games/${token}`)
+    }
 };
