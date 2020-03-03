@@ -35,10 +35,10 @@ function User(props) {
             <Row>
                 <Col size="s12">
                     <Row>
-                        <Col size="s4">
+                        <Col size="s6">
                         <a href="#profile"><img src={props.img} width="250px" alt="profile"/></a>
                         </Col>
-                        <Col size="s8">
+                        <Col size="s6">
                             <Row>
                                 <Col size="s5">
                                  <h5 className="user-name">{props.name}</h5>

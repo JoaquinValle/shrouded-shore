@@ -86,14 +86,24 @@ function Nav(props) {
               </div>
             </div>
             <div className="row">
-              <button type="button" className="btn waves-effect waves-light logBtn teal" name="action" onClick={()=>{
-                console.log(emailState, passState)
-                //API.logIn(emailState, passState)
-                setAnimState("animatedSlideOut")
-                setUserState(0)
-              }}>Log In</button><br/>
-              <Modal/>
-              {/* <button type="button" className="btn waves-effect waves-light logBtn teal">Sign Up</button> */}
+              <div className="col s3">
+                <div className="row">
+                  <div className="col s12">
+                    <button type="button" className="btn waves-effect waves-light logBtn" name="action" onClick={()=>{
+                      console.log(emailState, passState)
+                      //API.logIn(emailState, passState)
+                      setAnimState("animatedSlideOut")
+                      setUserState(0)
+                    }}>Log In</button><br/>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col s12">
+                    <Modal/>
+                    {/* <button type="button" className="btn waves-effect waves-light logBtn teal">Sign Up</button> */}
+                  </div>
+                </div>
+              </div>
             </div>
           </form>
           </>)}
