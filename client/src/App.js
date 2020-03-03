@@ -39,7 +39,8 @@ function App() {
           <Route exact path="/search/:search" component={Search} />
           <Route exact path="/" component={Home} />
           <Route exact path="/games" render={(props) => <SavedGames {...props}
-            mail="awdefe@gmail.com"
+            token="game token"
+            user="user token"
           />}/>
           
           <Route exact path="/profile" render={(props) => <User {...props} 

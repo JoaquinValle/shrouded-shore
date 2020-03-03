@@ -12,7 +12,7 @@ import LikesButton from "../components/LikesButton"
 // React Utilities and Hooks
 import API from "../utils/API";
 
-function Game() {
+function Game(props) {
   let { id } = useParams();
   const [gameState, setGameState] = useState();
   const [loadState, setLoadState] = useState(0);
@@ -25,7 +25,6 @@ function Game() {
     .then(res=>{
       setGameState(res.data.games[0]);
       setLoadState(1);
-      API.saveGame(id)
     }).catch(err=>{
       console.log(err);
       setLoadState(2);
@@ -59,6 +58,10 @@ function Game() {
         <LikesButton link={gameState.id} likes={likesState} onClick={()=>{
           setLikesState(likesState+1)
           setLikedState(!likedState)
+          API.saveGame(props.user, props.token)
+          .then((res) => {
+            console.log(res)
+          })
           }} liked={likedState}/></h1>
       </Row>
 
