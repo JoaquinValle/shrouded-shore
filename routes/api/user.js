@@ -7,6 +7,9 @@ router.route("/")
   .get(userController.findAll)
   .post(userController.create);
 
+router.route("/games/:id")
+  .post(userController.addLiked)
+
 // Matches with "/api/user/:id"
 router.route("/:id")
   .get(userController.findOne)
@@ -37,7 +40,7 @@ router
     }
   })
   
-  
+
 router
   .post('/login', async (req, res) => {
     const { mail, password } = req.body;

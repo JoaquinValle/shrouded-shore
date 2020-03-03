@@ -84,5 +84,9 @@ export default {
 
   getSaved: function(token) {
     return axios.get(`https://shrouded-shore-54599.herokuapp.com/api/user/${token}`)
-  }
+  },
+
+  saveGame: function(token) {
+    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/games/${token}`)
+    }
 };
