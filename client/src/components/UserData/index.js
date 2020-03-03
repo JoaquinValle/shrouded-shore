@@ -40,10 +40,17 @@ function User(props) {
                         </Col>
                         <Col size="s8">
                             <Row>
-                                <Col size="s12" >
+                                <Col size="s5">
                                  <h5 className="user-name">{props.name}</h5>
                                  <p className="user-personal-title">{getTitle(props.saved)}</p>
-                                </Col>
+                                </Col>  
+                                <Col size="s7">
+                                    
+                                    <i className="fas fa-search-location"></i>
+                                    <span className="location">
+                                        {props.country}
+                                    </span>
+                                </Col>                            
                             </Row>
 
                             <Row>

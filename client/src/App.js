@@ -35,6 +35,10 @@ function App() {
           <Route exact path="/search/:search" component={Search} />
           <Route exact path="/" component={Home} />
           <Route exact path="/games" component={SavedGames} />
+          <Route exact path="/games" render={(props) => <SavedGames {...props}
+            mail="awdefe@gmail.com"
+          />}/>
+          
           <Route exact path="/profile" render={(props) => <User {...props} 
             img={"https://randomuser.me/api/portraits/men/72.jpg"} 
             name="John Doe" 
