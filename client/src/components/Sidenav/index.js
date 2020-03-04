@@ -93,7 +93,7 @@ function Nav() {
                       onClick={(e)=>{
                         e.preventDefault();
                         console.log(mailState, passState)
-                        API.logIn({user:userState,password:passState})
+                        API.logIn({mail:mailState,password:passState})
                         .then(res=>{
                           console.log(res);
                           if(res.data.message==="User not found") console.log("User not found..");
