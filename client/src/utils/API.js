@@ -85,7 +85,11 @@ export default {
     return axios.get(`/api/user/${token}`)
   },
 
-  saveGame: function(token) {
-    return axios.post(`/api/user/games/${token}`)
-    }
+  saveGame: function(user, gameId) {
+    return axios.post(`/api/user/games/${user}/${gameId}`)
+    },
+  
+    getRecommendations: function(averagePlayTime) {
+    return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=${averagePlayTime}&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
+  }
 };
