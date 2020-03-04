@@ -92,7 +92,7 @@ function Nav() {
                     <button type="submit" className="btn waves-effect waves-light logBtn" name="action" 
                       onClick={(e)=>{
                         e.preventDefault();
-                        API.logIn(userState,passState)
+                        API.logIn({user:userState,password:passState})
                         .then(res=>{
                           console.log(res);
                           if(res.data.message==="User not found") console.log("User not found..");
