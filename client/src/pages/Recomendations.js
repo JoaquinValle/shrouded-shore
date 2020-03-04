@@ -19,7 +19,7 @@ function Recomendations() {
   const [loadState, setLoadState] = useState(0);
 
   useEffect(()=>{
-    API.getRecomendations(45)
+    API.getRecommendations(45)
     .then(res=>{
       setGamesState(res.data.games);
       setLoadState(1);

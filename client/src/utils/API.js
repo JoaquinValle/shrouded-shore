@@ -35,7 +35,7 @@ export default {
   },
   
   getRecommendations: function(averagePlayTime) {
-    return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=${averagePlayTime}&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
+    return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=${averagePlayTime}&pretty=true&order_by=reddit_week_count&limit=${limit}&client_id=${BGA}`)
   },
 
   // Search BGA API for all categories
