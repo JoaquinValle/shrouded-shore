@@ -33,6 +33,10 @@ export default {
     const year = date.getFullYear()+1;
     return axios.get(`https://www.boardgameatlas.com/api/search?order_by=year_published&lt_year_published=${year}&popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
   },
+  
+  getRecommendations: function(averagePlayTime) {
+    return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=${averagePlayTime}&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
+  },
 
   // Search BGA API for all categories
   getCategories: function() {
@@ -70,11 +74,8 @@ export default {
     return axios.get("/api/user/" + id);
   },
 
-  logIn: function(mail, password) {
-    return axios.post(`/api/user/login`, {
-      mail: mail,
-      password: password
-    })
+  logIn: function(user) {
+    return axios.post(`/api/user/login`, user)
   },
 
   signup: function(user) {
@@ -87,9 +88,5 @@ export default {
 
   saveGame: function(user, gameId) {
     return axios.post(`/api/user/games/${user}/${gameId}`)
-    },
-  
-    getRecommendations: function(averagePlayTime) {
-    return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=${averagePlayTime}&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
-  }
+    }
 };
