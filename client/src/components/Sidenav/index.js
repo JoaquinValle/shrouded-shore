@@ -92,6 +92,7 @@ function Nav() {
                     <button type="submit" className="btn waves-effect waves-light logBtn" name="action" 
                       onClick={(e)=>{
                         e.preventDefault();
+                        console.log(userState, passState)
                         API.logIn({user:userState,password:passState})
                         .then(res=>{
                           console.log(res);
