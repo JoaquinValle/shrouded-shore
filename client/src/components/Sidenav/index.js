@@ -42,8 +42,8 @@ function Nav() {
           {userState===0?(<>
           <li className="topSidenav"><div className="user-view mobileSidenavFix">
             <div className="background"></div>
-            <a href="#profile"><img className="circle" src={loggedUserState.img} alt="profile"/></a>
-            <a href="#profile"><span className="white-text name">{loggedUserState.name}</span></a>
+            <a href="#profile"><img className="circle" src="https://randomuser.me/api/portraits/men/72.jpg" alt="profile"/></a>
+            <a href="#profile"><span className="white-text name">"John Doe"</span></a>
             <a href="#logout" onClick={()=>setUserState(1)}><span className="white-text email">Log Out</span></a>
           </div></li>
           <li><a href="/profile"><MatIcon>account_circle</MatIcon>Profile</a></li>
