@@ -2,8 +2,7 @@
 import axios from "axios";
 
 // Enviroment BGA client id
-//const BGA = process.env.REACT_APP_BGA;
-const BGA = "mslELa9SkR"
+const BGA = process.env.REACT_APP_BGA;
 // Limit of games queried
 const limit = 20;
 
@@ -83,21 +82,17 @@ export default {
   },
 
   signup: function(mail, password) {
-    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/signup`, {
+    axios.post(`/api/user/signup`, {
       mail: mail,
       password: password
-    })
-    .then((res) => {
-      console.log(res)
-      return res
     })
   },
 
   getSaved: function(token) {
-    return axios.get(`https://shrouded-shore-54599.herokuapp.com/api/user/${token}`)
+    return axios.get(`/api/user/${token}`)
   },
 
   saveGame: function(token) {
-    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/games/${token}`)
+    axios.post(`/api/user/games/${token}`)
     }
 };
