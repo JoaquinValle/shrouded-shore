@@ -70,7 +70,7 @@ class EditModal extends Component {
                 <input type="text" name ="favorite" placeholder="Catan"/>
 
                 <span>
-                    <button type="submit" className="modal-close waves-effect waves-teal btn btn-fix">Submit</button>
+                    <button type="submit" className="modal-close waves-effect waves-teal btn btn-fix" onClick="">Submit</button>
                     <button type="button" className="modal-close waves-effect waves-red red btn">Cancel</button>
                 </span>
             </form>

@@ -72,13 +72,9 @@ export default {
   },
 
   logIn: function(mail, password) {
-    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/login`, {
+    axios.post(`/api/user/login`, {
       mail: mail,
       password: password
-    })
-    .then((res) => {
-      console.log(res)
-      return res
     })
   },
 
@@ -93,11 +89,21 @@ export default {
     })
   },
 
-  getSaved: function(token) {
-    return axios.get(`https://shrouded-shore-54599.herokuapp.com/api/user/${token}`)
+  getSaved: function(mail) {
+    return axios.get(`https://shrouded-shore-54599.herokuapp.com/api/user/${mail}`)
   },
 
-  saveGame: function(token, user) {
-    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/games/${user}/${token}`)
-    }
+  saveGame: function(gameId, mail) {
+    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/games/${mail}/${gameId}`)
+    },
+
+  getRecommendations: function(averagePlayTime) {
+  
+    return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=${averagePlayTime}&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
+  }
 };
+// saved games (tiempo promedio (complexity))
+// regrese resultados
+
+
+// 

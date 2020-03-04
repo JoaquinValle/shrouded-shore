@@ -56,7 +56,6 @@ class Modal extends Component {
                 <input type="password" name="password" placeholder="super52SecreT@password"/>
                 <label for="email">Email</label><br/>
                 <input type="text" name ="email" placeholder="catanrocks@gmail.com"/>
-                {/* <input type="url" name ="profilePicture" placeholder="https://www.fillmurray.com/300/300"/> */}
                 <span>
                     <button type="submit" className="modal-close waves-effect waves-teal btn btn-fix">Submit</button>
                     <button type="button" className="modal-close waves-effect waves-red red btn">Cancel</button>
