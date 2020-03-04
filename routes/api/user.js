@@ -16,7 +16,7 @@ router.route("/:id")
   .delete(userController.remove);
 
 router
-  .post('/signup', (req, res) => {
+  .post('/signup', async (req, res) => {
     if(!req.body.mail){
       res.status(422).json({
         errors: {
@@ -30,25 +30,21 @@ router
         }
       })
     }else{
-      const {name, email, password} = req.body;
-      console.log(req.body);
-      userController.create(req.body)
-      // const user = req.
-        // .then((res) => {
-          res.send(201);
-        // })
+        let response = await userController.create(req.body);
+        if(response.errmsg){
+          res.status(400).send(response.errmsg);
+        }else{
+          res.status(201).send("Success");
+        }
     }
-  })
+  });
   
 
 router
   .post('/login', async (req, res) => {
     const { mail, password } = req.body;
     try{
-    let user = await userController.findByUsername({mail});
-    // res.send({message: 'holi'})  // cambiar por jwt
-    console.log(`user:`);
-    console.log(user);
+      let user = await userController.findByUsername({mail});
     if(user){
       if(compareSync(password, user.password)) {
         res.json({ token: userController.toAuthJSON(user).token});

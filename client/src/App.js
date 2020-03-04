@@ -2,7 +2,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-// React Component/Pages
+// React Pages
 import Home from "./pages/Home";
 import Top from "./pages/Top";
 import Categories from "./pages/Categories";
@@ -13,12 +13,12 @@ import Game from "./pages/Game";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
 import SavedGames from "./pages/SavedGames"
-import User from "./components/UserData"
-
+import Recomendations from "./pages/Recomendations";
 
 // React Components
 import Nav from "./components/Nav";
 import Sidenav from "./components/Sidenav";
+import User from "./components/UserData"
 
 // API
 import API from "./utils/API.js"
@@ -37,6 +37,7 @@ function App() {
           <Route exact path="/complexity/:complexity" component={ByComplexity} />
           <Route exact path="/games/:id" component={Game} />
           <Route exact path="/search/:search" component={Search} />
+          <Route exact path="/recomendations" component={Recomendations} />
           <Route exact path="/" component={Home} />
           <Route exact path="/games" render={(props) => <SavedGames {...props}
             token="game token"

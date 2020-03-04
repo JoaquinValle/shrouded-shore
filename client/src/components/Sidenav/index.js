@@ -74,7 +74,7 @@ function Nav(props) {
               console.log(emailState, passState)
             }} className="white-text name logInText">Log In</span>
           </div></li>
-          <form className="formWrapper" onSubmit={getInfo}>
+          <form action="/login" method="post" className="formWrapper" onSubmit={getInfo}>
             <div className="row">
               <div className="input-field col s12">
                 <input id="email" type="email" className="validate" onChange={(e) => setEmailState(e.target.value)} value={emailState}/>

@@ -34,9 +34,9 @@ module.exports = {
       // password: hashSync(password, 10)
     // }
     console.log(user);
-    db.User.create(user)
-      .then(res => {console.log(res)})
-      .catch((err) => {console.error(err)});
+    return db.User.create(user)
+      .then(res => {return res})
+      .catch((err) => {return err});
   },
   remove: function(req, res) {
     db.User.findById({ _id: req.params.id })

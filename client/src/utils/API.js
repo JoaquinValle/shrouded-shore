@@ -2,17 +2,11 @@
 import axios from "axios";
 
 // Enviroment BGA client id
-//const BGA = process.env.REACT_APP_BGA;
-const BGA = "mslELa9SkR"
+const BGA = process.env.REACT_APP_BGA;
 // Limit of games queried
 const limit = 20;
 
 export default {
-  // Get user by id from DB
-  getUser: function(id) {
-    return axios.get("/api/user/" + id);
-  },
-  
   // Search BGA API by game id
   getId:function(id){
     return axios.get(`https://www.boardgameatlas.com/api/search?ids=${id}&pretty=true&client_id=${BGA}`);
@@ -38,6 +32,10 @@ export default {
     const date = new Date();
     const year = date.getFullYear()+1;
     return axios.get(`https://www.boardgameatlas.com/api/search?order_by=year_published&lt_year_published=${year}&popularity&limit=${limit}&pretty=true&client_id=${BGA}`)
+  },
+  
+  getRecommendations: function(averagePlayTime) {
+    return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=${averagePlayTime}&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
   },
 
   // Search BGA API for all categories
@@ -71,36 +69,26 @@ export default {
     }
   },
 
-  logIn: function(mail, password) {
-    axios.post(`/api/user/login`, {
-      mail: mail,
-      password: password
-    })
+  // Get user by id from DB
+  getUser: function(id) {
+    return axios.get("/api/user/" + id);
   },
 
-  signup: function(mail, password) {
-    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/signup`, {
-      mail: mail,
-      password: password
-    })
-    .then((res) => {
-      console.log(res)
-      return res
-    })
+  logIn: function(user) {
+    return axios.post(`/api/user/login`, user)
   },
 
-  getSaved: function(mail) {
-    return axios.get(`https://shrouded-shore-54599.herokuapp.com/api/user/${mail}`)
+  signup: function(user) {
+    return axios.post(`/api/user/signup`,user)
   },
 
-  saveGame: function(gameId, mail) {
-    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/games/${mail}/${gameId}`)
-    },
+  getSaved: function(token) {
+    return axios.get(`/api/user/${token}`)
+  },
 
-  getRecommendations: function(averagePlayTime) {
-  
-    return axios.get(`https://www.boardgameatlas.com/api/search?gt_max_playtime=${averagePlayTime}&pretty=true&order_by=popularity&limit=${limit}&client_id=${BGA}`)
-  }
+  saveGame: function(user, gameId) {
+    return axios.post(`/api/user/games/${user}/${gameId}`)
+    }
 };
 // saved games (tiempo promedio (complexity))
 // regrese resultados
