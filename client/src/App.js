@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/complexity/:complexity" component={ByComplexity} />
           <Route exact path="/games/:id" component={Game} />
           <Route exact path="/search/:search" component={Search} />
-          <Route exact path="/recomendations" component={Recomendations} />
+          <Route exact path="/suggestions" component={Recomendations} />
           <Route exact path="/" component={Home} />
           <Route exact path="/games" render={(props) => <SavedGames {...props}
             mail="awdefe@gmail.com"
