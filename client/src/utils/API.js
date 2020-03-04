@@ -2,8 +2,7 @@
 import axios from "axios";
 
 // Enviroment BGA client id
-//const BGA = process.env.REACT_APP_BGA;
-const BGA = "mslELa9SkR"
+const BGA = process.env.REACT_APP_BGA;
 // Limit of games queried
 const limit = 20;
 
@@ -86,7 +85,7 @@ export default {
     return axios.get(`/api/user/${token}`)
   },
 
-  saveGame: function(token,user) {
-    return axios.post(`/api/user/games/${user}/${token}`)
-  }
+  saveGame: function(token) {
+    return axios.post(`/api/user/games/${token}`)
+    }
 };
