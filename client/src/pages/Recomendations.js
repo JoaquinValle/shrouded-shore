@@ -11,7 +11,7 @@ import Loader from "../components/Loader"
 // React Utilities and Hooks
 import API from "../utils/API";
 
-function Top() {
+function Recomendations() {
   const numDisplayed = 4;
   const paginationSize = 5;
   const [pageState, setPageState] = useState(parseInt(useLocation().hash.replace("#",""))||1);
@@ -19,7 +19,7 @@ function Top() {
   const [loadState, setLoadState] = useState(0);
 
   useEffect(()=>{
-    API.getTop()
+    API.getRecomendations()
     .then(res=>{
       setGamesState(res.data.games);
       setLoadState(1);
@@ -33,7 +33,7 @@ function Top() {
     <Container>
       
       <Row>
-        <h1 className="header center teal-text text-lighten-1">Top Games</h1>
+        <h1 className="header center teal-text text-lighten-1">Recomendations</h1>
       </Row>
 
       {loadState===1?<>
@@ -74,4 +74,4 @@ function Top() {
     </Container>
   );
 }
-export default Top;
+export default Recomendations;

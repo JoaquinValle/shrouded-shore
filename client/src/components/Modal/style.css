@@ -1,12 +1,15 @@
 .btn-fix {
-    margin-right: 30px
+    margin-right: 30px;
 }
 
 .modal-fix {
     width: 90px;
-    margin: 10px
+    margin: 10px;
+    position: relative;
+    top:-70px;
+    left:40px;
 }
 
 label {
-    font-size: 16px
+    font-size: 16px;
 }
