@@ -8,11 +8,6 @@ const BGA = "mslELa9SkR"
 const limit = 20;
 
 export default {
-  // Get user by id from DB
-  getUser: function(id) {
-    return axios.get("/api/user/" + id);
-  },
-  
   // Search BGA API by game id
   getId:function(id){
     return axios.get(`https://www.boardgameatlas.com/api/search?ids=${id}&pretty=true&client_id=${BGA}`);
@@ -71,33 +66,27 @@ export default {
     }
   },
 
+  // Get user by id from DB
+  getUser: function(id) {
+    return axios.get("/api/user/" + id);
+  },
+
   logIn: function(mail, password) {
-    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/login`, {
+    return axios.post(`/api/user/login`, {
       mail: mail,
       password: password
-    })
-    .then((res) => {
-      console.log(res)
-      return res
     })
   },
 
-  signup: function(mail, password) {
-    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/signup`, {
-      mail: mail,
-      password: password
-    })
-    .then((res) => {
-      console.log(res)
-      return res
-    })
+  signup: function(user) {
+    return axios.post(`/api/user/signup`,user)
   },
 
   getSaved: function(token) {
-    return axios.get(`https://shrouded-shore-54599.herokuapp.com/api/user/${token}`)
+    return axios.get(`/api/user/${token}`)
   },
 
-  saveGame: function(token) {
-    axios.post(`https://shrouded-shore-54599.herokuapp.com/api/user/games/${token}`)
-    }
+  saveGame: function(token,user) {
+    return axios.post(`/api/user/games/${user}/${token}`)
+  }
 };

@@ -14,12 +14,13 @@ import useWindowDimensions from "../../utils/useWindowDimensions"
 import "./style.css";
 
 // Nav components displays navbar and handles searching
-function Nav(props) {
+function Nav() {
   const { width } = useWindowDimensions();
   const [userState, setUserState] = useState(1);
   const [animState, setAnimState] = useState("");
-  const [emailState, setEmailState] = useState("")
-  const [passState, setPassState] = useState("")
+  const [emailState, setEmailState] = useState("");
+  const [passState, setPassState] = useState("");
+  const [loggedUserState, setLoggedUserState] = useState();
 
   const getInfo = (event) => {
     event.preventDefault()
@@ -28,8 +29,6 @@ function Nav(props) {
       console.log(passState)
     }
   }
-
-
 
   useEffect(() => {
     M.Sidenav.init(document.querySelectorAll('#sideNav'),{menuWidth:170});
@@ -43,13 +42,14 @@ function Nav(props) {
           {userState===0?(<>
           <li className="topSidenav"><div className="user-view mobileSidenavFix">
             <div className="background"></div>
-            <a href="#profile"><img className="circle" src={props.img} alt="profile"/></a>
-            <a href="#profile"><span className="white-text name">{props.name}</span></a>
+            <a href="#profile"><img className="circle" src={loggedUserState.img} alt="profile"/></a>
+            <a href="#profile"><span className="white-text name">{loggedUserState.name}</span></a>
             <a href="#logout" onClick={()=>setUserState(1)}><span className="white-text email">Log Out</span></a>
           </div></li>
           <li><a href="/profile"><MatIcon>account_circle</MatIcon>Profile</a></li>
           <li><a href="/games"><MatIcon>collections</MatIcon>Games</a></li>
-          <li><a href="/friends"><MatIcon>contacts</MatIcon>Friends</a></li>
+          <li><a href="/suggestions"><MatIcon>extension</MatIcon>Suggestions</a></li>
+          {/* <li><a href="/friends"><MatIcon>contacts</MatIcon>Friends</a></li> */}
           </>):(userState===1&&width>992)?(
           <li className="topSidenav"><div className="user-view">
             <div className="background"></div>
@@ -69,10 +69,7 @@ function Nav(props) {
                 setUserState(1)
               }}>close</i>
             <MatIcon extraClass="logInIcon">account_circle</MatIcon>
-            <span onClick={() => {
-              API.logIn(emailState, passState)
-              console.log(emailState, passState)
-            }} className="white-text name logInText">Log In</span>
+            <span className="white-text name logInText">Log In</span>
           </div></li>
           <form className="formWrapper" onSubmit={getInfo}>
             <div className="row">
@@ -92,21 +89,27 @@ function Nav(props) {
               <div className="col s3">
                 <div className="row">
                   <div className="col s12">
-                    <button type="button" className="btn waves-effect waves-light logBtn" name="action" onClick={()=>{
-                      console.log(emailState, passState)                      
-                      setAnimState("animatedSlideOut")
-                      setUserState(0)
+                    <button type="submit" className="btn waves-effect waves-light logBtn" name="action" 
+                      onClick={(e)=>{
+                        e.preventDefault();
+                        API.logIn(userState,passState)
+                        .then(res=>{
+                          console.log(res);
+                          if(res.data.message==="User not found") console.log("User not found..");
+                          else{
+                            setLoggedUserState(res)
+                            setAnimState("animatedSlideOut")
+                            setUserState(0)
+                          }
+                        })
+                        .catch(err=>console.log(err));                    
                     }}>Log In</button><br/>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col s12">
-                    <Modal/>
                   </div>
                 </div>
               </div>
             </div>
           </form>
+          <Modal/>
           </>)}
 
 
